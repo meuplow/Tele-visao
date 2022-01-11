@@ -10,14 +10,20 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "~44.0.0",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/stack": "^6.0.11",
+    "expo": "^41.0.0",
     "expo-cli": "^5.0.1",
     "expo-status-bar": "~1.2.0",
     "gh-pages": "^3.2.3",
     "global": "^4.4.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-native": "^0.66.4",
+    "react-native": "^0.63.0",
+    "react-native-gesture-handler": "~2.1.0",
+    "react-native-reanimated": "~2.3.1",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-screens": "~3.0.0",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
