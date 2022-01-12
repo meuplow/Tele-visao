@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, View, Pressable } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import styles from './styles.js';
+import styles from '../styles.js';
 
 export default function Cadastro_Perfil() {
     const [hospitais_clinicas] = useState(['SantaCasa', 'MoinhosdeVento'])
@@ -28,7 +28,7 @@ export default function Cadastro_Perfil() {
                     }
             </Picker>
             <Pressable style={styles.button}>
-            <Text style={styles.text}>Logar</Text>
+            <Text style={styles.text}>Cadastrar</Text>
             </Pressable>
             <StatusBar style="auto" />
         </View>

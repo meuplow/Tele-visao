@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, View, Pressable } from 'react-native';
-import styles from './styles.js';
+import styles from '../styles.js';
 
 export default function Cadastro_Local() {
   return(
@@ -16,7 +16,7 @@ export default function Cadastro_Local() {
         <Text style={styles.field_name}>Hospital/Clínica</Text>
         <TextInput secureTextEntry={true} style={styles.field} placeholder="Digite aqui o nome" />
         <Pressable style={styles.button}>
-          <Text style={styles.text}>Logar</Text>
+          <Text style={styles.text}>Cadastrar</Text>
         </Pressable>
         <StatusBar style="auto" />
     </View>

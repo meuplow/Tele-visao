@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Pressable } from 'react-native';
-import styles from './styles.js';
+import styles from '../styles.js';
 
 export default function Home({navigation}) {
   return (
