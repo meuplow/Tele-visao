@@ -7,8 +7,8 @@ import styles from '../styles.js';
 export default function Examinador_Home({navigation}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bem-vindo</Text>
-      <Text style={styles.subtitle}>Manuel</Text>
+      <Text style={styles.title}>Bem-vinda</Text>
+      <Text style={styles.subtitle}>Maria</Text>
       <Text style={styles.title}>Menu</Text>
       <Pressable style={styles.menu_button}>
         <Icon name="clipboard-text-multiple" size={35} color='#5A6CF3' />

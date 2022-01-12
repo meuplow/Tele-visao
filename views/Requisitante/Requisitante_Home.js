@@ -7,12 +7,12 @@ import styles from '../styles.js';
 export default function Requisitante_Home({navigation}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bem-vindo</Text>
-      <Text style={styles.subtitle}>Manuel</Text>
+      <Text style={styles.title}>Bem-vinda</Text>
+      <Text style={styles.subtitle}>Carla</Text>
       <Text style={styles.title}>Menu</Text>
       <Pressable style={styles.menu_button}>
-        <Icon name="alert" size={35} color='#F08F5F' />
-        <Text style={styles.text_menu_button}>Exames pendentes</Text>
+        <Icon name="clipboard-text-multiple" size={35} color='#5CE1CD' />
+        <Text style={styles.text_menu_button}>Solicitar exame</Text>
       </Pressable>
       <Pressable style={styles.menu_button}>
         <Icon name="clipboard-text-multiple" size={35} color='#F0D05F' />

@@ -21,10 +21,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-
-        
         <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
+
         <Stack.Screen name='Examinador_Home' component={Examinador_Home} />
+        
 
 
         <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
