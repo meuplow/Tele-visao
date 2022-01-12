@@ -37,6 +37,8 @@ export default function Cadastro_Perfil() {
             <TextInput style={styles.field} placeholder="Digite aqui o número" />
             <Text style={styles.field_name}>Histórico do paciente</Text>
             <TextInput multiline={true} style={styles.big_field} placeholder="Digite aqui o histórico do paciente" />
+            <Text style={styles.field_name}>Informações da solicitação</Text>
+            <TextInput multiline={true} style={styles.big_field} placeholder="Digite aqui as informações da solicitação" />
             <Pressable style={styles.button}>
             <Text style={styles.text}>Cadastrar</Text>
             </Pressable>

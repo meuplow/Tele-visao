@@ -5,8 +5,6 @@ import { Picker } from '@react-native-picker/picker';
 import styles from '../styles.js';
 
 export default function Cadastro_Perfil() {
-    const [hospitais_clinicas] = useState(['SantaCasa', 'MoinhosdeVento'])
-    const [hospitais_clinicas_selecionado, set_hospitais_clinicas_selecionado] = useState([])
     return(
         <View style={styles.container}>
             <Text style={styles.title}>Cadastro de novo perfil</Text>
@@ -17,15 +15,9 @@ export default function Cadastro_Perfil() {
             <Text style={styles.field_name}>Senha</Text>
             <TextInput secureTextEntry={true} style={styles.field} placeholder="Digite sua senha" />
             <Text style={styles.field_name}>Hospital/Clínica associado</Text>
-            <Picker
-                selectedValue={hospitais_clinicas_selecionado}
-                onValueChange={(itemValue, itemIndex) =>
-                                set_hospitais_clinicas_selecionado(itemValue)}>
-                    {
-                        hospitais_clinicas.map(hospitais_clinicas_index => {
-                            return(<Picker.Item label={hospitais_clinicas_index} value={hospitais_clinicas_index} />);
-                        })
-                    }
+            <Picker style={styles.picker}>
+                <Picker.Item label='Santa Casa' value='Santa Casa' />
+                <Picker.Item label='Moinhos de Vento' value='Moinhos de Vento' />
             </Picker>
             <Pressable style={styles.button}>
             <Text style={styles.text}>Cadastrar</Text>

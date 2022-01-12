@@ -22,6 +22,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
+
         <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
         <Stack.Screen name='Solicitacao_Exame' component={Solicitacao_Exame} />
 
@@ -34,7 +36,6 @@ export default function App() {
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Cadastro_Local' component={Cadastro_Local} />
-        <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
       </Stack.Navigator>
     </NavigationContainer>  
   );
