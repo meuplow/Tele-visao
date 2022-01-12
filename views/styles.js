@@ -31,7 +31,29 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       marginTop: 10,
       paddingVertical: 20,
-      paddingHorizontal: 20
+      paddingHorizontal: 20,
+      border: 0
+    },
+    big_field: {
+      backgroundColor: '#F2F2F5',
+      borderRadius: 5,
+      height: 150,
+      width: 250,
+      marginBottom: 20,
+      marginTop: 10,
+      paddingVertical: 20,
+      paddingHorizontal: 20,
+      border: 0
+    },
+    picker: {
+      backgroundColor: '#F2F2F5',
+      borderRadius: 5,
+      width: 250,
+      marginBottom: 20,
+      marginTop: 10,
+      paddingVertical: 20,
+      paddingHorizontal: 20,
+      border: 0
     },
     button: {
       marginTop: 30,

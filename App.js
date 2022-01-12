@@ -14,6 +14,7 @@ import Admin_Home from './views/Admin/Admin_Home';
 import Examinador_Home from './views/Examinador/Examinador_Home';
 
 import Requisitante_Home from './views/Requisitante/Requisitante_Home';
+import Solicitacao_Exame from './views/Requisitante/Solicitacao_Exame';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -22,11 +23,10 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
+        <Stack.Screen name='Solicitacao_Exame' component={Solicitacao_Exame} />
 
         <Stack.Screen name='Examinador_Home' component={Examinador_Home} />
         
-
-
         <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
 
         <Stack.Screen name='Admin_Home' component={Admin_Home} />
