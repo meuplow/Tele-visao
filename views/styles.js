@@ -18,6 +18,21 @@ const styles = StyleSheet.create({
       textAlign: 'left',
       fontSize: 20,
     },
+    list_title: {
+      marginTop: 5,
+      textAlign: 'left',
+      fontSize: 25,
+      fontWeight: 'bold'
+    },
+    list_subtitle: {
+      marginBottom: 5,
+      textAlign: 'left',
+      fontSize: 20
+    },
+    list_icon: {
+      marginBottom: 5,
+      marginRight: 10
+    },
     field_name: {
       textAlign: 'center',
       fontSize: 20,
@@ -66,10 +81,22 @@ const styles = StyleSheet.create({
       marginTop: 10,
       paddingVertical: 10,
       borderRadius: 5,
-      backgroundColor: '#F7EFEE',
+      backgroundColor: '#F2F2F5',
       height: 150,
       width: 150,
       alignItems: 'center',
+      justifyContent: 'center'
+    },
+    list_button: {
+      marginTop: 10,
+      paddingVertical: 10,
+      borderRadius: 5,
+      backgroundColor: '#F2F2F5',
+      height: 100,
+      width: 250,
+      marginBottom: 20,
+      marginTop: 10,
+      padding: 20,
       justifyContent: 'center'
     },
     text: {

@@ -14,7 +14,7 @@ export default function Requisitante_Home({navigation}) {
         <Icon name="clipboard-text-multiple" size={35} color='#5CE1CD' />
         <Text style={styles.text_menu_button}>Solicitar exame</Text>
       </Pressable>
-      <Pressable style={styles.menu_button}>
+      <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Ver_Laudos')}>
         <Icon name="clipboard-text-multiple" size={35} color='#F0D05F' />
         <Text style={styles.text_menu_button}>Ver laudos</Text>
       </Pressable>
