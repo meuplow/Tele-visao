@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, TextInput, View, Pressable } from 'react-native';
+import { Button, Text, TextInput, View, Pressable } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import DateField from 'react-native-datefield';
 import styles from '../styles.js';
 
 export default function Cadastro_Perfil() {
@@ -18,6 +19,20 @@ export default function Cadastro_Perfil() {
                 <Picker.Item style={styles.text} label='F' value='F' />
             </Picker>
             <Text style={styles.field_name}>Data de nascimento</Text>
+            <DateField 
+                labelDate="Dia"
+                labelMonth="Mês"
+                labelYear="Ano"
+                styleInput={{ fontSize: 15 }}
+                containerStyle={{ marginVertical: 20 }}
+                styleInput={{ width: 244/3,
+                            height: 50,
+                            backgroundColor: '#F2F2F5',
+                            marginLeft: 2,
+                            marginRight: 2
+                            }}
+                onSubmit={(value) => console.log(value)}
+            />
             <Text style={styles.field_name}>Raça</Text>
             <Picker style={styles.picker}>
                 <Picker.Item label='Branco' value='Branco' />
