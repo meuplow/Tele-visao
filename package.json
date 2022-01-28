@@ -10,32 +10,33 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-native-picker/picker": "1.9.11",
+    "@cawfree/react-native-simpler-date-picker": "^0.1.0-alpha.4",
+    "@react-native-picker/picker": "2.2.1",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
-    "expo": "^41.0.0",
+    "expo": "^44.0.5",
     "expo-cli": "^5.0.1",
-    "expo-dev-client": "^0.8.0",
+    "expo-dev-client": "^0.8.2",
     "expo-status-bar": "~1.2.0",
     "gh-pages": "^3.2.3",
     "global": "^4.4.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-native": "^0.63.0",
+    "react-native": "^0.64.3",
     "react-native-date-picker": "^4.1.3",
+    "react-native-datepicker": "^1.7.2",
     "react-native-gesture-handler": "~2.1.0",
     "react-native-reanimated": "~2.3.1",
-    "react-native-safe-area-context": "^3.2.0",
-    "react-native-screens": "~3.0.0",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "~3.10.2",
     "react-native-vector-icons": "^9.0.0",
-    "react-native-web": "0.17.1",
-    "simple-react-native-datepicker": "^2.0.4"
+    "react-native-web": "0.17.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@types/react": "~17.0.21",
-    "@types/react-native": "~0.64.12",
-    "typescript": "~4.3.5"
+    "@types/react-native": "~0.66.15",
+    "typescript": "~4.5.5"
   },
   "private": true,
   "homepage": "https://SofiaSFaber.github.io/Televisao"

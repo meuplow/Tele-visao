@@ -5,6 +5,8 @@ import { Picker } from '@react-native-picker/picker';
 import styles from '../styles.js';
 
 export default function Cadastro_Perfil() {
+    var options = ["Santa Casa","Moinhos de Vento","Mãe de Deus"];
+
     return(
         <View style={styles.container}>
             <Text style={styles.title}>Solicitar exame</Text>
@@ -16,7 +18,6 @@ export default function Cadastro_Perfil() {
                 <Picker.Item style={styles.text} label='F' value='F' />
             </Picker>
             <Text style={styles.field_name}>Data de nascimento</Text>
-            <Text style={styles.subtext}>ainda vai ser adicionada</Text>
             <Text style={styles.field_name}>Raça</Text>
             <Picker style={styles.picker}>
                 <Picker.Item label='Branco' value='Branco' />
@@ -28,8 +29,9 @@ export default function Cadastro_Perfil() {
             </Picker>
             <Text style={styles.field_name}>Hospital</Text>
             <Picker style={styles.picker}>
-                <Picker.Item label='Santa Casa' value='Santa Casa' />
-                <Picker.Item label='Moinhos de Vento' value='Moinhos de Vento' />
+                {options.map((item, index) => {
+                    return (<Picker.Item label={item} value={index} key={index} />);
+                })}
             </Picker>
             <Text style={styles.field_name}>Matrícula</Text>
             <TextInput style={styles.field} placeholder="Digite aqui a matrícula" />

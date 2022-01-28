@@ -26,23 +26,21 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
-        <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} />
-        <Stack.Screen name='Visualizar_Exame' component={Visualizar_Exame} />
-
         <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
         <Stack.Screen name='Solicitacao_Exame' component={Solicitacao_Exame} />
         <Stack.Screen name='Ver_Laudos' component={Ver_Laudos} />
 
+        <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
+        <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} />
+        <Stack.Screen name='Visualizar_Exame' component={Visualizar_Exame} />
+
         <Stack.Screen name='Examinador_Home' component={Examinador_Home} />
         
-
         <Stack.Screen name='Admin_Home' component={Admin_Home} />
 
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Cadastro_Local' component={Cadastro_Local} />
-        <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
       </Stack.Navigator>
     </NavigationContainer>  
   );
