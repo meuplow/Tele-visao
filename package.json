@@ -20,6 +20,7 @@
     "expo-cli": "^5.0.1",
     "expo-dev-client": "^0.8.2",
     "expo-status-bar": "~1.2.0",
+    "firebase": "^9.6.5",
     "gh-pages": "^3.2.3",
     "global": "^4.4.0",
     "react": "17.0.1",
