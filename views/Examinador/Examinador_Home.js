@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles.js';
+/* Test examinador branch */
 
 export default function Examinador_Home({navigation}) {
   return (
