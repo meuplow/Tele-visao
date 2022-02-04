@@ -7,9 +7,6 @@ export default function Home({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Bem-vindo ao Tele-visão!</Text>
-      <Pressable style={styles.button} onPress={() => navigation.navigate('Cadastro_Local')}>
-        <Text style={styles.text}>Cadastrar novo local</Text>
-      </Pressable>
       <Pressable style={styles.button} onPress={() => navigation.navigate('Cadastro_Perfil')}>
         <Text style={styles.text}>Cadastrar usuário</Text>
       </Pressable>
