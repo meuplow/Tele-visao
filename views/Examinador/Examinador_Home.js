@@ -16,7 +16,7 @@ export default function Examinador_Home({navigation}) {
       </Pressable>
       <Pressable style={styles.menu_button}>
         <Icon name="alert" size={35} color='#F08F5F' />
-        <Text style={styles.text_menu_button}>Coletas pendentes</Text>
+        <Text style={styles.text_menu_button} onPress={() => navigation.navigate('Exames_Pendentes')}>Coletas pendentes</Text>
       </Pressable>
       <Pressable style={styles.menu_button}>
         <Icon name="clipboard-check-multiple-outline" size={35} color='#5CE1CD' />
