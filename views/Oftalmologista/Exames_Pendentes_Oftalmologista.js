@@ -4,26 +4,25 @@ import { Text, View, Pressable, Div } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../styles.js';
 
-export default function Ver_Laudos({navigation}) {
+export default function Exames_Pendentes_Oftalmologista({ navigation }) {
+    var exames_pendentes_oftalmologista = [['Santa Casa', 'Carolina'],
+    ['Moinhos de Vento', 'Carlos'],
+    ['Mãe de Deus', 'José']];
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Exames pendentes</Text>
-            <Pressable style={styles.list_button} onPress={() => navigation.navigate('Visualizar_Exame')}>
-                <Text style={styles.list_subtitle}><Icon name="hospital" size={25} style={styles.list_icon}/>Santa Casa</Text>
-                <Text style={styles.list_title}>Paciente: Carolina</Text>
-            </Pressable>
-            <Pressable style={styles.list_button} onPress={() => navigation.navigate('Visualizar_Exame')}>
-                <Text style={styles.list_subtitle}><Icon name="hospital" size={25} style={styles.list_icon}/>Santa Casa</Text>
-                <Text style={styles.list_title}>Paciente: Tainá</Text>
-            </Pressable>
-            <Pressable style={styles.list_button} onPress={() => navigation.navigate('Visualizar_Exame')}>
-                <Text style={styles.list_subtitle}><Icon name="hospital" size={25} style={styles.list_icon}/>Santa Casa</Text>
-                <Text style={styles.list_title}>Paciente: Paulo</Text>
-            </Pressable>
-            <Pressable style={styles.list_button} onPress={() => navigation.navigate('Visualizar_Exame')}>
-                <Text style={styles.list_subtitle}><Icon name="hospital" size={25} style={styles.list_icon}/>Santa Casa</Text>
-                <Text style={styles.list_title}>Paciente: Pedro</Text>
-            </Pressable>
+            {laudos.map((item) => {
+                return (
+                    <Pressable style={styles.list_button} onPress={() => navigation.navigate('Visualizar_Exame')}>
+                        <View style={styles.list_button_local}>
+                            <Icon name="hospital" size={25} />
+                            <Text style={styles.list_subtitle}>{item[0]}</Text>
+                        </View>
+                        <Text style={styles.list_title}>Paciente: {item[1]}</Text>
+                    </Pressable>
+                );
+            })}
             <StatusBar style="auto" />
         </View>
     );

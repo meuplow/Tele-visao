@@ -33,10 +33,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='Admin_Home' component={Admin_Home} />
-        <Stack.Screen name='Aceita_Usuarios' component={Aceita_Usuarios} />
-        <Stack.Screen name='Seleciona_Examinador_Da_Semana' component={Seleciona_Examinador_Da_Semana} />
-
         <Stack.Screen name='Examinador_Home' component={Examinador_Home} />
         <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} />
         <Stack.Screen name='Exame' component={Exame} />
@@ -44,6 +40,10 @@ export default function App() {
         <Stack.Screen name='Exames_Atribuidos' component={Exames_Atribuidos} />
         <Stack.Screen name='Coletas_Em_Andamento' component={Coletas_Em_Andamento} />
         <Stack.Screen name='Coletas_Feitas' component={Coletas_Feitas} />
+
+        <Stack.Screen name='Admin_Home' component={Admin_Home} />
+        <Stack.Screen name='Aceita_Usuarios' component={Aceita_Usuarios} />
+        <Stack.Screen name='Seleciona_Examinador_Da_Semana' component={Seleciona_Examinador_Da_Semana} />
 
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />

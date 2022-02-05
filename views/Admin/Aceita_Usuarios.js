@@ -26,7 +26,10 @@ export default function Aceita_Usuarios({navigation}) {
             {pending_exams.map((item) => {
                     return (
                         <Pressable style={styles.list_button} onPress={() => aceita_coleta()}>
-                            <Text style={styles.list_subtitle}><Icon name="hospital" size={25} style={styles.list_icon}/>{item[0]}</Text>
+                            <View style={styles.list_button_local}>
+                                <Icon name="hospital" size={25}/>
+                                <Text style={styles.list_subtitle}>{item[0]}</Text>
+                            </View>
                             <Text style={styles.list_title}>Usuário: {item[1]}</Text>
                             <Text style={styles.list_subtitle}>Perfil: {item[2]}</Text>
                         </Pressable>
