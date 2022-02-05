@@ -19,9 +19,10 @@ export default function Ver_Laudos({navigation}) {
             var response_2 = confirm("Deseja atribuir esta coleta a outro examinador?");
 
             if(response_2==true){
+                navigation.navigate('Atribuir_Coleta')
             }
             else{
-                () => navigation.navigate('Exames_Pendentes')
+                navigation.navigate('Exames_Pendentes')
             }
         }
     }
