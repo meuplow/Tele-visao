@@ -16,6 +16,9 @@ import Examinador_Home from './views/Examinador/Examinador_Home';
 import Exames_Pendentes from './views/Examinador/Exames_Pendentes';
 import Exame from './views/Examinador/Exame';
 import Atribuir_Coleta from './views/Examinador/Atribuir_Coleta';
+import Exames_Atribuidos from './views/Examinador/Exames_Atribuidos';
+import Coletas_Em_Andamento from './views/Examinador/Coletas_Em_Andamento';
+import Coletas_Feitas from './views/Examinador/Coletas_Feitas';
 
 import Requisitante_Home from './views/Requisitante/Requisitante_Home';
 import Solicitacao_Exame from './views/Requisitante/Solicitacao_Exame';
@@ -32,6 +35,9 @@ export default function App() {
         <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} />
         <Stack.Screen name='Exame' component={Exame} />
         <Stack.Screen name='Atribuir_Coleta' component={Atribuir_Coleta} />
+        <Stack.Screen name='Exames_Atribuidos' component={Exames_Atribuidos} />
+        <Stack.Screen name='Coletas_Em_Andamento' component={Coletas_Em_Andamento} />
+        <Stack.Screen name='Coletas_Feitas' component={Coletas_Feitas} />
 
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />

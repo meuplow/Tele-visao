@@ -16,21 +16,14 @@ export default function Ver_Laudos({navigation}) {
             navigation.navigate('Exame')
         }
         else{
-            var response_2 = confirm("Deseja atribuir esta coleta a outro examinador?");
-
-            if(response_2==true){
-                navigation.navigate('Atribuir_Coleta')
-            }
-            else{
-                navigation.navigate('Exames_Pendentes')
-            }
+            // volta pra lista do examinador da semana (backend)
+            navigation.navigate('Exames_Pendentes')
         }
     }
 
     return (
         <View style={styles.container}>
-            <Text style={styles.subtitle}>Você é o examinador da semana!</Text>
-            <Text style={styles.title}>Exames pendentes</Text>
+            <Text style={styles.title}>Exames atribuídos</Text>
             {pending_exams.map((item) => {
                     return (
                         <Pressable style={styles.list_button} onPress={() => aceita_coleta()}>
