@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Pressable, Div } from 'react-native';
+import { Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../styles.js';
 
@@ -12,7 +12,7 @@ export default function Exames_Pendentes_Oftalmologista({ navigation }) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Exames pendentes</Text>
-            {laudos.map((item) => {
+            {exames_pendentes_oftalmologista.map((item) => {
                 return (
                     <Pressable style={styles.list_button} onPress={() => navigation.navigate('Visualizar_Exame')}>
                         <View style={styles.list_button_local}>

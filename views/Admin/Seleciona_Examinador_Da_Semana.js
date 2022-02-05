@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Pressable, Div, InteractionManager } from 'react-native';
+import { Text, View, Pressable } from 'react-native';
 import styles from '../styles.js';
 
 export default function Seleciona_Examinador_Da_Semana({navigation}) {
