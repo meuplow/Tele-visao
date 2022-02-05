@@ -12,9 +12,9 @@ export default function Ver_Laudos({navigation}) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Exames pendentes</Text>
-            {pending_exams.map((item, index) => {
+            {pending_exams.map((item) => {
                     return (
-                        <Pressable style={styles.list_button} onPress={() => navigation.navigate('Visualizar_Exame')}>
+                        <Pressable style={styles.list_button} onPress={() => navigation.navigate('Exame')}>
                             <Text style={styles.list_subtitle}><Icon name="hospital" size={25} style={styles.list_icon}/>{item[0]}</Text>
                             <Text style={styles.list_title}>Paciente: {item[1]}</Text>
                         </Pressable>
