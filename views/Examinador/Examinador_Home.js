@@ -11,10 +11,6 @@ export default function Examinador_Home({navigation}) {
       <Text style={styles.subtitle}>Maria</Text>
       <Text style={styles.title}>Menu</Text>
       <Pressable style={styles.menu_button}>
-        <Icon name="clipboard-text-multiple" size={35} color='#5A6CF3' />
-        <Text style={styles.text_menu_button}>Coletas em andamento</Text>
-      </Pressable>
-      <Pressable style={styles.menu_button}>
         <Icon name="alert" size={35} color='#F08F5F' />
         <Text style={styles.text_menu_button} onPress={() => navigation.navigate('Exames_Pendentes')}>Coletas pendentes</Text>
       </Pressable>
