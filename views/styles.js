@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center'
     },
     title: {
-      textAlign: 'left',
+      textAlign: 'center',
       fontSize: 25,
       fontWeight: 'bold'
     },
@@ -20,13 +20,12 @@ const styles = StyleSheet.create({
     list_title: {
       marginTop: 5,
       textAlign: 'left',
-      fontSize: 25,
+      fontSize: 20,
       fontWeight: 'bold'
     },
     list_subtitle: {
-      marginBottom: 5,
       textAlign: 'left',
-      fontSize: 20
+      fontSize: 15
     },
     list_icon: {
       marginBottom: 5,
