@@ -8,8 +8,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center'
     },
     title: {
-      marginTop: 25,
-      textAlign: 'left',
+      textAlign: 'center',
       fontSize: 25,
       fontWeight: 'bold'
     },
@@ -21,17 +20,17 @@ const styles = StyleSheet.create({
     list_title: {
       marginTop: 5,
       textAlign: 'left',
-      fontSize: 25,
+      fontSize: 20,
       fontWeight: 'bold'
     },
     list_subtitle: {
-      marginBottom: 5,
       textAlign: 'left',
-      fontSize: 20
+      marginLeft: 10,
+      marginTop: 5,
+      fontSize: 15
     },
     list_icon: {
-      marginBottom: 5,
-      marginRight: 10
+      padding: 10
     },
     field_name: {
       textAlign: 'center',
@@ -46,8 +45,7 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       marginTop: 10,
       paddingVertical: 20,
-      paddingHorizontal: 20,
-      border: 0
+      paddingHorizontal: 20
     },
     big_field: {
       backgroundColor: '#F2F2F5',
@@ -57,8 +55,7 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       marginTop: 10,
       paddingVertical: 20,
-      paddingHorizontal: 20,
-      border: 0
+      paddingHorizontal: 20
     },
     picker: {
       backgroundColor: '#F2F2F5',
@@ -67,8 +64,7 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       marginTop: 10,
       paddingVertical: 20,
-      paddingHorizontal: 20,
-      border: 0
+      paddingHorizontal: 20
     },
     button: {
       marginTop: 30,
@@ -97,7 +93,12 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       marginTop: 10,
       padding: 20,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      display: 'flex'
+    },
+    list_button_local: {
+      display: 'flex',
+      flexDirection: 'row'
     },
     text: {
       textAlign: 'center',

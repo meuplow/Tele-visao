@@ -5,7 +5,8 @@ import { Picker } from '@react-native-picker/picker';
 import styles from '../styles.js';
 
 export default function Cadastro_Perfil() {
-    var options = ["Santa Casa","Moinhos de Vento","Mãe de Deus"];
+    var local_options = ["Santa Casa","Moinhos de Vento","Mãe de Deus"];
+    var profile_options = ["Examinador","Requisitante","Oftalmologista"];
 
     return(
         <View style={styles.container}>
@@ -18,7 +19,13 @@ export default function Cadastro_Perfil() {
             <TextInput secureTextEntry={true} style={styles.field} placeholder="Digite sua senha" />
             <Text style={styles.field_name}>Hospital/Clínica associado</Text>
             <Picker style={styles.picker}>
-                {options.map((item, index) => {
+                {local_options.map((item, index) => {
+                    return (<Picker.Item label={item} value={index} key={index} />);
+                })}
+            </Picker>
+            <Text style={styles.field_name}>Perfil</Text>
+            <Picker style={styles.picker}>
+                {profile_options.map((item, index) => {
                     return (<Picker.Item label={item} value={index} key={index} />);
                 })}
             </Picker>
