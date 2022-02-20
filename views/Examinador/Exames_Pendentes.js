@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -7,15 +7,15 @@ import { db } from '../../src/config/firebase.js';
 import { getFirestore, collection, getDocs, addDoc, arrayRemove} from 'firebase/firestore';
 
 export default function Ver_Laudos({navigation}) {
-    var pending_exams = [['Santa Casa','Carolina'],
-                        ['Moinhos de Vento','Carlos'],
-                        ['Mãe de Deus','José']];
+    // var pending_exams = [['Santa Casa','Carolina'],
+    //                     ['Moinhos de Vento','Carlos'],
+    //                     ['Mãe de Deus','José']];
 
     async function getPendingExams(){
-        let exams = [];
+        let exams = new Array();
         let examsSnapshot = await getDocs(collection(db, "exames"));
         examsSnapshot.forEach(exam => exams.push(exam.data()));
-        console.log(exams);
+        // console.log(exams);
         return exams;
     }
 
@@ -37,13 +37,27 @@ export default function Ver_Laudos({navigation}) {
         }
     }
     const [exams, setExams] = useState([]);
-    let a = await getPendingExams();
-    setExams(a);
+    const [isLoaded, setIsLoaded] = useState(false);
+    // let a = await getPendingExams();
+    useEffect(() => {
+        const getExams = async () => {
+          const respExams = await getPendingExams();
+          setExams(respExams);
+          setIsLoaded(true);
+        //   console.log(respExams);
+        }
+        getExams();
+    }, []);
+    
+    // setExams(a);
     return (
         <View style={styles.container}>
             <Text style={styles.subtitle}>Você é o examinador da semana!</Text>
             <Text style={styles.title}>Exames pendentes</Text>
-            {exams.forEach(item => {
+            {!isLoaded && <p>Carregando...</p>}
+            {isLoaded && exams.length == 0  && <p>Nenhum exame pendente.</p>}
+            {
+                isLoaded && exams.length > 0 && exams.map(item => {
                     return (
                         <Pressable style={styles.list_button} onPress={() => aceita_coleta()}>  
                             <View style={styles.list_button_local}>
@@ -52,7 +66,7 @@ export default function Ver_Laudos({navigation}) {
                             </View>
                             <Text style={styles.list_title}>Paciente: {item["nome_completo"]}</Text>
                         </Pressable>
-                    );
+                )
             })
             }
             <StatusBar style="auto" />
