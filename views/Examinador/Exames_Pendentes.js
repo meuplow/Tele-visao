@@ -4,7 +4,9 @@ import { Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../styles.js';
 import { db } from '../../src/config/firebase.js';
-import { getFirestore, collection, getDocs, addDoc, arrayRemove} from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc, arrayRemove } from 'firebase/firestore';
+
+
 
 export default function Ver_Laudos({navigation}) {
     // var pending_exams = [['Santa Casa','Carolina'],
@@ -14,17 +16,18 @@ export default function Ver_Laudos({navigation}) {
     async function getPendingExams(){
         let exams = new Array();
         let examsSnapshot = await getDocs(collection(db, "exames"));
-        examsSnapshot.forEach(exam => exams.push(exam.data()));
+        examsSnapshot.forEach(exam => exams.push({'id': exam.id, 'dados': exam.data()}));
         // console.log(exams);
         return exams;
     }
 
-    function aceita_coleta(){
+    function aceita_coleta(patient){
         var response = confirm("Aceitar coleta?");
 
         if(response==true){
-            //Precisa ir para exame informando o paciente certo
-            navigation.navigate('Exame')
+            navigation.navigate('Exame', {
+                patient: patient
+            })
         }
         else{
             var response_2 = confirm("Deseja atribuir esta coleta a outro examinador?");
@@ -58,14 +61,14 @@ export default function Ver_Laudos({navigation}) {
             {!isLoaded && <p>Carregando...</p>}
             {isLoaded && exams.length == 0  && <p>Nenhum exame pendente.</p>}
             {
-                isLoaded && exams.length > 0 && exams.map(item => {
+                isLoaded && exams.length > 0 && exams.map(patient => {
                     return (
-                        <Pressable style={styles.list_button} onPress={() => aceita_coleta()}>  
+                        <Pressable style={styles.list_button} onPress={() => aceita_coleta(patient)}>  
                             <View style={styles.list_button_local}>
                                 <Icon name="hospital" size={25}/>
-                                <Text style={styles.list_subtitle}>{item["local"]}</Text>
+                                <Text style={styles.list_subtitle}>{patient['dados']["local"]}</Text>
                             </View>
-                            <Text style={styles.list_title}>Paciente: {item["nome_completo"]}</Text>
+                            <Text style={styles.list_title}>Paciente: {patient['dados']["nome_completo"]}</Text>
                         </Pressable>
                 )
             })
