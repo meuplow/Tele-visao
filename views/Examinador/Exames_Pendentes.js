@@ -23,6 +23,7 @@ export default function Ver_Laudos({navigation}) {
         var response = confirm("Aceitar coleta?");
 
         if(response==true){
+            //Precisa ir para exame informando o paciente certo
             navigation.navigate('Exame')
         }
         else{

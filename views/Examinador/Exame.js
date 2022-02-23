@@ -7,6 +7,9 @@ import styles from '../styles.js';
 import { db } from '../../src/config/firebase.js';
 import { getFirestore, collection, getDocs, addDoc} from 'firebase/firestore';
 
+//Save exams discription
+
+//*****Need to send the discription to the correct patient******
 function descExame(exame) {
     // let exame = "new exame"
     addDoc(collection(db, "exames"), {
