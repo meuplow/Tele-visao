@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 // import * as firebase from "firebase";
-import "firebase/storage";
+import { getStorage } from "firebase/storage";
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
     // Follow this pattern to import other Firebase services
     // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-analytics.js";
@@ -30,9 +30,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 
 export const db = getFirestore(app);
+
+export const storage = getStorage(app, 'gs://tele-visao-224f7.appspot.com/');
 /*
 const db = firebaseApp.firestone();
 export {db};*/
