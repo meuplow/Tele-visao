@@ -37,6 +37,13 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontWeight: 'bold'
     },
+    field_name_left: {
+      display: 'flex',
+      marginLeft: 'auto',
+      textAlign: 'left',
+      fontSize: 20,
+      fontWeight: 'bold'
+    },
     field: {
       backgroundColor: '#F2F2F5',
       borderRadius: 5,

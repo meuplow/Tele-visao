@@ -91,6 +91,8 @@ export default function Exame({ route, navigation }) {
 
     return (
         <View style={styles.container}>
+            {/* <View style={styles.list_button_local}><Text style={styles.field_name_left}>{patient['dados']['nome_completo']}</Text></View> */}
+            <Text style={styles.field_name_left}>{patient['dados']['nome_completo']}</Text>
             <Pressable style={styles.list_button} onPress={ () => pickImage() }>
                 <Text style={styles.field_name}>Selecionar imagem da galeria</Text>
             </Pressable>
