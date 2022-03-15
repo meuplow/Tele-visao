@@ -1,21 +1,41 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  backgroundColor: '#fff',
     container: {
-      flex: 1,
+      margin: 20,
+      display: 'flex',
       backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center'
+      color: '#363636'
+    },
+    welcome: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      margin: 10
     },
     title: {
+      textAlign: 'left',
+      fontSize: 21,
+      fontFamily: 'Arial',
+      fontWeight: 'bold',
+      color: '#363636'
+    },
+    menu: {
+      margin: 40,
+      alignContent: 'center',
+      fontFamily: 'Arial',
       textAlign: 'center',
-      fontSize: 25,
-      fontWeight: 'bold'
+      fontSize: 21,
+      color: '#363636',
+      fontWeight: 'normal',
     },
     subtitle: {
       marginBottom: 16,
       textAlign: 'left',
-      fontSize: 20,
+      fontFamily: 'Arial',
+      color: '#363636',
+      fontSize: 13,
     },
     list_title: {
       marginTop: 5,
@@ -81,14 +101,24 @@ const styles = StyleSheet.create({
       width: 200
     },
     menu_button: {
-      marginTop: 10,
+      margin: 10,
       paddingVertical: 10,
-      borderRadius: 5,
-      backgroundColor: '#F2F2F5',
+      borderRadius: 10,
+      backgroundColor: '#F7EFEE',
       height: 150,
       width: 150,
+      display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      textAlign: 'center',
+    },
+    menu_button_container: {
+      marginTop: -20,
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
     },
     list_button: {
       marginTop: 10,
@@ -114,8 +144,11 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
     },
     text_menu_button: {
+      fontFamily: 'Arial',
+      color: '#363636',
       textAlign: 'center',
-      fontSize: 18,
+      fontSize: 13,
+      width: 100,
       fontWeight: 'bold'
     }
   }

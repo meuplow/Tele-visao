@@ -27,11 +27,16 @@ import Solicitacao_Exame from './views/Requisitante/Solicitacao_Exame';
 
 import Ver_Laudos from './views/Ver_Laudos';
 
+import { DefaultTheme } from '@react-navigation/native';
+
 export default function App() {
   const Stack = createStackNavigator();
 
+  const navTheme = DefaultTheme;
+  navTheme.colors.background = '#fff';
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navTheme}>
       <Stack.Navigator>
         <Stack.Screen name='Examinador_Home' component={Examinador_Home} />
         <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} />
