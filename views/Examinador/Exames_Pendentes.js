@@ -7,8 +7,6 @@ import { db } from '../../src/config/firebase.js';
 import { collection, getDocs, updateDoc, doc } from 'firebase/firestore';
 import Alert from 'react-native-awesome-alerts';
 
-
-
 export default function Ver_Laudos({navigation}) {
     // var pending_exams = [['Santa Casa','Carolina'],
     //                     ['Moinhos de Vento','Carlos'],

@@ -8,32 +8,32 @@ import { collection, getDocs, updateDoc, doc, query, where } from 'firebase/fire
 
 
 
-export default function Ver_Laudos({navigation}) {
+export default function Ver_Laudos({ navigation }) {
     // var pending_exams = [['Santa Casa','Carolina'],
     //                     ['Moinhos de Vento','Carlos'],
     //                     ['Mãe de Deus','José']];
 
-    async function getPendingExams(){
+    async function getPendingExams() {
         let exams = new Array();
         let examsRef = collection(db, "exames");
         let acceptedQuery = query(examsRef, where("aceito", "==", true));
         let examsSnapshot = await getDocs(acceptedQuery);
         examsSnapshot.forEach(exam => {
-                exams.push({'id': exam.id, 'dados': exam.data()});
+            exams.push({ 'id': exam.id, 'dados': exam.data() });
         });
         // console.log(exams);
         return exams;
     }
 
-    function start_exam(patient){
+    function start_exam(patient) {
         var response = confirm("Começar coleta?");
 
-        if(response){
+        if (response) {
             // const patientRef = doc(db, 'exames', patient['id']);
             // updateDoc(patientRef, {
             //     'aceito': true
             // });
-            
+
             navigation.navigate('Exame', {
                 patient: patient
             })
@@ -45,33 +45,35 @@ export default function Ver_Laudos({navigation}) {
     // let a = await getPendingExams();
     useEffect(() => {
         const getExams = async () => {
-          const respExams = await getPendingExams();
-          setExams(respExams);
-          setIsLoaded(true);
-        //   console.log(respExams);
+            const respExams = await getPendingExams();
+            setExams(respExams);
+            setIsLoaded(true);
+            //   console.log(respExams);
         }
         getExams();
     }, []);
-    
+
     // setExams(a);
     return (
         <View style={styles.container}>
             <Text style={styles.subtitle}>Você é o examinador da semana!</Text>
             <Text style={styles.title}>Exames pendentes</Text>
             {!isLoaded && <p>Carregando...</p>}
-            {isLoaded && exams.length == 0  && <p>Nenhum exame em andamento.</p>}
+            {isLoaded && exams.length == 0 && <p>Nenhum exame em andamento.</p>}
             {
                 isLoaded && exams.length > 0 && exams.map(patient => {
                     return (
-                        <Pressable style={styles.list_button} onPress={() => start_exam(patient)}>  
-                            <View style={styles.list_button_local}>
-                                <Icon name="hospital" size={25}/>
-                                <Text style={styles.list_subtitle}>{patient['dados']["local"]}</Text>
-                            </View>
-                            <Text style={styles.list_title}>Paciente: {patient['dados']["nome_completo"]}</Text>
-                        </Pressable>
-                )
-            })
+                        <View style={styles.list}>
+                            <Pressable style={styles.list_button} onPress={() => start_exam(patient)}>
+                                <View style={styles.list_button_local}>
+                                    <Icon name="hospital" size={25} />
+                                    <Text style={styles.list_subtitle}>{patient['dados']["local"]}</Text>
+                                </View>
+                                <Text style={styles.list_title}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                            </Pressable>
+                        </View>
+                    )
+                })
             }
             <StatusBar style="auto" />
         </View>

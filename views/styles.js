@@ -15,14 +15,15 @@ const styles = StyleSheet.create({
       margin: 10
     },
     title: {
-      textAlign: 'left',
+      textAlign: 'center',
       fontSize: 21,
       fontFamily: 'Arial',
       fontWeight: 'bold',
       color: '#363636'
     },
     menu: {
-      margin: 40,
+      marginTop: 40,
+      marginBottom: 10,
       alignContent: 'center',
       fontFamily: 'Arial',
       textAlign: 'center',
@@ -32,10 +33,14 @@ const styles = StyleSheet.create({
     },
     subtitle: {
       marginBottom: 16,
-      textAlign: 'left',
+      textAlign: 'center',
       fontFamily: 'Arial',
       color: '#363636',
       fontSize: 13,
+    },
+    list: {
+      justifyContent: 'center',
+      alignItems: 'center'
     },
     list_title: {
       marginTop: 5,
@@ -113,25 +118,19 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
     menu_button_container: {
-      marginTop: -20,
+      marginTop: 5,
       display: 'flex',
       flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      textAlign: 'center',
     },
     list_button: {
-      marginTop: 10,
-      paddingVertical: 10,
-      borderRadius: 5,
-      backgroundColor: '#F2F2F5',
       height: 100,
       width: 250,
-      marginBottom: 20,
-      marginTop: 10,
       padding: 20,
-      justifyContent: 'center',
-      display: 'flex'
+      borderRadius: 5,
+      marginTop: 10,
+      marginBottom: 20,
+      paddingVertical: 10,
+      backgroundColor: '#F2F2F5'
     },
     list_button_local: {
       display: 'flex',
@@ -147,7 +146,8 @@ const styles = StyleSheet.create({
       fontFamily: 'Arial',
       color: '#363636',
       textAlign: 'center',
-      fontSize: 13,
+      fontSize: 15,
+      marginTop: 10,
       width: 100,
       fontWeight: 'bold'
     }
