@@ -8,8 +8,6 @@ import { collection, getDocs, updateDoc, doc } from 'firebase/firestore';
 import Alert from 'react-native-awesome-alerts';
 import Icon_person from 'react-native-vector-icons/Fontisto';
 
-
-
 export default function Ver_Laudos({navigation}) {
     // var pending_exams = [['Santa Casa','Carolina'],
     //                     ['Moinhos de Vento','Carlos'],

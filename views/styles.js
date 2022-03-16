@@ -15,14 +15,15 @@ const styles = StyleSheet.create({
       margin: 10
     },
     title: {
-      textAlign: 'left',
+      textAlign: 'center',
       fontSize: 21,
       fontFamily: 'Arial',
       fontWeight: 'bold',
       color: '#363636'
     },
     menu: {
-      margin: 40,
+      marginTop: 40,
+      marginBottom: 10,
       alignContent: 'center',
       fontFamily: 'Arial',
       textAlign: 'center',
@@ -32,10 +33,14 @@ const styles = StyleSheet.create({
     },
     subtitle: {
       marginBottom: 16,
-      textAlign: 'left',
+      textAlign: 'center',
       fontFamily: 'Arial',
       color: '#363636',
       fontSize: 13,
+    },
+    list: {
+      justifyContent: 'center',
+      alignItems: 'center'
     },
     list_title: {
       marginTop: 5,
@@ -120,18 +125,22 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
     menu_button_container: {
-      marginTop: -20,
+      marginTop: 5,
       display: 'flex',
       flexDirection: 'row',
+<<<<<<< HEAD
       alignItems: 'flex-start',
       justifyContent: 'center',
       textAlign: 'center',
+=======
+>>>>>>> 9d78d59db6c1c0ba769a26b0d232732a6fbbc8e1
     },
     flex_row: {
       display: 'flex',
       flexDirection: 'row',
     },
     list_button: {
+<<<<<<< HEAD
       marginTop: 20,
       paddingVertical: 5,
       borderRadius: 10,
@@ -144,6 +153,16 @@ const styles = StyleSheet.create({
     },
     list_information: {
       marginLeft: 20,
+=======
+      height: 100,
+      width: 250,
+      padding: 20,
+      borderRadius: 5,
+      marginTop: 10,
+      marginBottom: 20,
+      paddingVertical: 10,
+      backgroundColor: '#F2F2F5'
+>>>>>>> 9d78d59db6c1c0ba769a26b0d232732a6fbbc8e1
     },
     list_button_local: {
       display: 'flex',
@@ -159,7 +178,8 @@ const styles = StyleSheet.create({
       fontFamily: 'Arial',
       color: '#363636',
       textAlign: 'center',
-      fontSize: 13,
+      fontSize: 15,
+      marginTop: 10,
       width: 100,
       fontWeight: 'bold'
     }
