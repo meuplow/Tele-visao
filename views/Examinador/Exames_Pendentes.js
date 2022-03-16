@@ -6,6 +6,7 @@ import styles from '../styles.js';
 import { db } from '../../src/config/firebase.js';
 import { collection, getDocs, updateDoc, doc } from 'firebase/firestore';
 import Alert from 'react-native-awesome-alerts';
+import Icon_person from 'react-native-vector-icons/Fontisto';
 
 
 
@@ -81,11 +82,18 @@ export default function Ver_Laudos({navigation}) {
                             let collection_accepted = aceita_coleta(patient)
                             patient['dados']['aceito'] = collection_accepted
                         }}>
-                            <View style={styles.list_button_local}>
-                                <Icon name="hospital" size={25}/>
-                                <Text style={styles.list_subtitle}>{patient['dados']["local"]}</Text>
+                            <View style={styles.list_icon}>
+                                    <Icon_person name="person" size={30} color='#363636' />
                             </View>
-                            <Text style={styles.list_title}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                            <View style={styles.list_information}>
+                                <View style={styles.list_button_local}>
+                                    <View style={styles.sublist_icon}>
+                                        <Icon name="hospital" size={16} color='#6A79A8'/>
+                                    </View>
+                                    <Text style={styles.list_subtitle}>{patient['dados']["local"]}</Text>
+                                </View>
+                                <Text style={styles.list_title}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                            </View>
                         </Pressable>
                 )
             })

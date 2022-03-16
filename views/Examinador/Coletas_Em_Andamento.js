@@ -4,6 +4,7 @@ import { Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../styles.js';
 import { db } from '../../src/config/firebase.js';
+import Icon_person from 'react-native-vector-icons/Fontisto';
 import { collection, getDocs, updateDoc, doc, query, where } from 'firebase/firestore';
 
 
@@ -63,13 +64,23 @@ export default function Ver_Laudos({navigation}) {
             {
                 isLoaded && exams.length > 0 && exams.map(patient => {
                     return (
-                        <Pressable style={styles.list_button} onPress={() => start_exam(patient)}>  
-                            <View style={styles.list_button_local}>
-                                <Icon name="hospital" size={25}/>
-                                <Text style={styles.list_subtitle}>{patient['dados']["local"]}</Text>
-                            </View>
-                            <Text style={styles.list_title}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                        <View style={styles.sub_container}>
+                            <Pressable style={styles.list_button} onPress={() => start_exam(patient)}>
+                                <View style={styles.list_icon}>
+                                    <Icon_person name="person" size={30} color='#363636' />
+                                </View>
+                                <View style={styles.list_information}>
+                                    <View style={styles.list_button_local}>
+                                        <View style={styles.sublist_icon}>
+                                            <Icon name="hospital" size={16} color='#6A79A8'/>
+                                        </View>
+                                        
+                                        <Text style={styles.list_subtitle}>{patient['dados']["local"]}</Text>
+                                    </View>
+                                    <Text style={styles.list_title}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                                </View>
                         </Pressable>
+                        </View>
                 )
             })
             }

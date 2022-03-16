@@ -40,17 +40,24 @@ const styles = StyleSheet.create({
     list_title: {
       marginTop: 5,
       textAlign: 'left',
-      fontSize: 20,
+      fontSize: 13,
+      color: '#363636',
       fontWeight: 'bold'
     },
     list_subtitle: {
       textAlign: 'left',
       marginLeft: 10,
       marginTop: 5,
-      fontSize: 15
+      color: '#6A79A8',
+      fontSize: 13,
     },
     list_icon: {
-      padding: 10
+      padding: 10,
+      paddingLeft: 30,
+      paddingRight: 10
+    },
+    sublist_icon: {
+      marginTop: 5
     },
     field_name: {
       textAlign: 'center',
@@ -116,22 +123,27 @@ const styles = StyleSheet.create({
       marginTop: -20,
       display: 'flex',
       flexDirection: 'row',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       justifyContent: 'center',
       textAlign: 'center',
     },
+    flex_row: {
+      display: 'flex',
+      flexDirection: 'row',
+    },
     list_button: {
-      marginTop: 10,
-      paddingVertical: 10,
-      borderRadius: 5,
+      marginTop: 20,
+      paddingVertical: 5,
+      borderRadius: 10,
       backgroundColor: '#F2F2F5',
-      height: 100,
-      width: 250,
-      marginBottom: 20,
-      marginTop: 10,
-      padding: 20,
-      justifyContent: 'center',
-      display: 'flex'
+      maxWidth: 380,
+      alignContent: 'flex-start',
+      alignItems: 'center',
+      display: 'flex',
+      flexDirection: 'row',
+    },
+    list_information: {
+      marginLeft: 20,
     },
     list_button_local: {
       display: 'flex',
