@@ -64,7 +64,6 @@ export default function Ver_Laudos({ navigation }) {
             {
                 isLoaded && exams.length > 0 && exams.map(patient => {
                     return (
-<<<<<<< HEAD
                         <View style={styles.sub_container}>
                             <Pressable style={styles.list_button} onPress={() => start_exam(patient)}>
                                 <View style={styles.list_icon}>
@@ -84,19 +83,6 @@ export default function Ver_Laudos({ navigation }) {
                         </View>
                 )
             })
-=======
-                        <View style={styles.list}>
-                            <Pressable style={styles.list_button} onPress={() => start_exam(patient)}>
-                                <View style={styles.list_button_local}>
-                                    <Icon name="hospital" size={25} />
-                                    <Text style={styles.list_subtitle}>{patient['dados']["local"]}</Text>
-                                </View>
-                                <Text style={styles.list_title}>Paciente: {patient['dados']["nome_completo"]}</Text>
-                            </Pressable>
-                        </View>
-                    )
-                })
->>>>>>> 9d78d59db6c1c0ba769a26b0d232732a6fbbc8e1
             }
             <StatusBar style="auto" />
         </View>
