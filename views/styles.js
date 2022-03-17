@@ -128,19 +128,15 @@ const styles = StyleSheet.create({
       marginTop: 5,
       display: 'flex',
       flexDirection: 'row',
-<<<<<<< HEAD
       alignItems: 'flex-start',
       justifyContent: 'center',
       textAlign: 'center',
-=======
->>>>>>> 9d78d59db6c1c0ba769a26b0d232732a6fbbc8e1
     },
     flex_row: {
       display: 'flex',
       flexDirection: 'row',
     },
     list_button: {
-<<<<<<< HEAD
       marginTop: 20,
       paddingVertical: 5,
       borderRadius: 10,
@@ -153,16 +149,6 @@ const styles = StyleSheet.create({
     },
     list_information: {
       marginLeft: 20,
-=======
-      height: 100,
-      width: 250,
-      padding: 20,
-      borderRadius: 5,
-      marginTop: 10,
-      marginBottom: 20,
-      paddingVertical: 10,
-      backgroundColor: '#F2F2F5'
->>>>>>> 9d78d59db6c1c0ba769a26b0d232732a6fbbc8e1
     },
     list_button_local: {
       display: 'flex',
