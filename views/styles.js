@@ -32,22 +32,22 @@ const styles = StyleSheet.create({
       fontWeight: 'normal',
     },
     subtitle: {
-      marginBottom: 16,
+      marginTop: 30,
+      marginBottom: 40,
       textAlign: 'center',
       fontFamily: 'Arial',
       color: '#363636',
-      fontSize: 13,
+      fontSize: 18
     },
     list: {
       justifyContent: 'center',
       alignItems: 'center'
     },
     list_title: {
-      marginTop: 5,
       textAlign: 'left',
-      fontSize: 13,
-      color: '#363636',
-      fontWeight: 'bold'
+      fontSize: 18,
+      marginTop: 10,
+      color: '#363636'
     },
     list_subtitle: {
       textAlign: 'left',
@@ -116,13 +116,14 @@ const styles = StyleSheet.create({
       margin: 10,
       paddingVertical: 10,
       borderRadius: 10,
-      backgroundColor: '#F7EFEE',
       height: 150,
       width: 150,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
+      shadowRadius: 15,
+      shadowOpacity: 0.1
     },
     menu_button_container: {
       marginTop: 5,
@@ -140,12 +141,14 @@ const styles = StyleSheet.create({
       marginTop: 20,
       paddingVertical: 5,
       borderRadius: 10,
-      backgroundColor: '#F2F2F5',
       maxWidth: 380,
+      minHeight: 75,
       alignContent: 'flex-start',
       alignItems: 'center',
       display: 'flex',
       flexDirection: 'row',
+      shadowRadius: 15,
+      shadowOpacity: 0.1
     },
     list_information: {
       marginLeft: 20,
@@ -164,10 +167,9 @@ const styles = StyleSheet.create({
       fontFamily: 'Arial',
       color: '#363636',
       textAlign: 'center',
-      fontSize: 15,
+      fontSize: 16.5,
       marginTop: 10,
       width: 100,
-      fontWeight: 'bold'
     }
   }
 );
