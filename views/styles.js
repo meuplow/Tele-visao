@@ -8,6 +8,16 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       color: '#363636'
     },
+    container_exame: {
+      margin: 20,
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      textAlign: 'center',
+      alignContent: 'center',
+      backgroundColor: '#fff',
+      color: '#363636'
+    },
     welcome: {
       display: 'flex',
       flexDirection: 'row',
@@ -52,10 +62,16 @@ const styles = StyleSheet.create({
     list_icon: {
       padding: 10
     },
+    camera_icon: {
+      marginTop: -5,
+      marginRight: 10,
+    },
     field_name: {
       textAlign: 'center',
       fontSize: 20,
-      fontWeight: 'bold'
+      fontFamily: 'Arial',
+      fontWeight: 'bold',
+      color: '#363636'
     },
     field_name_left: {
       display: 'flex',
@@ -100,6 +116,13 @@ const styles = StyleSheet.create({
       backgroundColor: '#6A79A8',
       width: 200
     },
+    button_exam: {
+      marginTop: 0,
+      paddingVertical: 10,
+      borderRadius: 5,
+      backgroundColor: '#6A79A8',
+      width: 200
+    },
     menu_button: {
       margin: 10,
       paddingVertical: 10,
@@ -120,17 +143,32 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       textAlign: 'center',
     },
+    menu_button_container_low: {
+      marginTop: 10,
+      display: 'flex',
+      flexGrow: 1,
+      flexShrink: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+    },
+    menu_button_container_inside: {
+      marginRight: 170
+    },
     list_button: {
       marginTop: 10,
       paddingVertical: 10,
       borderRadius: 5,
       backgroundColor: '#F2F2F5',
       height: 100,
-      width: 250,
+      maxWidth: 500,
       marginBottom: 20,
       marginTop: 10,
       padding: 20,
       justifyContent: 'center',
+      alignContent: 'center',
+      textAlign: 'center',
       display: 'flex'
     },
     list_button_local: {
