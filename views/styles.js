@@ -8,6 +8,16 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       color: '#363636'
     },
+    container_exame: {
+      margin: 20,
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      textAlign: 'center',
+      alignContent: 'center',
+      backgroundColor: '#fff',
+      color: '#363636'
+    },
     welcome: {
       display: 'flex',
       flexDirection: 'row',
@@ -15,15 +25,14 @@ const styles = StyleSheet.create({
       margin: 10
     },
     title: {
-      textAlign: 'center',
+      textAlign: 'left',
       fontSize: 21,
       fontFamily: 'Arial',
       fontWeight: 'bold',
       color: '#363636'
     },
     menu: {
-      marginTop: 40,
-      marginBottom: 10,
+      margin: 40,
       alignContent: 'center',
       fontFamily: 'Arial',
       textAlign: 'center',
@@ -32,42 +41,37 @@ const styles = StyleSheet.create({
       fontWeight: 'normal',
     },
     subtitle: {
-      marginTop: 30,
-      marginBottom: 40,
-      textAlign: 'center',
+      marginBottom: 16,
+      textAlign: 'left',
       fontFamily: 'Arial',
       color: '#363636',
-      fontSize: 18
-    },
-    list: {
-      justifyContent: 'center',
-      alignItems: 'center'
+      fontSize: 13,
     },
     list_title: {
+      marginTop: 5,
       textAlign: 'left',
-      fontSize: 18,
-      marginTop: 10,
-      color: '#363636'
+      fontSize: 20,
+      fontWeight: 'bold'
     },
     list_subtitle: {
       textAlign: 'left',
       marginLeft: 10,
       marginTop: 5,
-      color: '#6A79A8',
-      fontSize: 13,
+      fontSize: 15
     },
     list_icon: {
-      padding: 10,
-      paddingLeft: 30,
-      paddingRight: 10
+      padding: 10
     },
-    sublist_icon: {
-      marginTop: 5
+    camera_icon: {
+      marginTop: -5,
+      marginRight: 10,
     },
     field_name: {
       textAlign: 'center',
       fontSize: 20,
-      fontWeight: 'bold'
+      fontFamily: 'Arial',
+      fontWeight: 'bold',
+      color: '#363636'
     },
     field_name_left: {
       display: 'flex',
@@ -112,46 +116,60 @@ const styles = StyleSheet.create({
       backgroundColor: '#6A79A8',
       width: 200
     },
+    button_exam: {
+      marginTop: 0,
+      paddingVertical: 10,
+      borderRadius: 5,
+      backgroundColor: '#6A79A8',
+      width: 200
+    },
     menu_button: {
       margin: 10,
       paddingVertical: 10,
       borderRadius: 10,
+      backgroundColor: '#F7EFEE',
       height: 150,
       width: 150,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
-      shadowRadius: 15,
-      shadowOpacity: 0.1
     },
     menu_button_container: {
-      marginTop: 5,
+      marginTop: -20,
       display: 'flex',
       flexDirection: 'row',
-      alignItems: 'flex-start',
+      alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
     },
-    flex_row: {
+    menu_button_container_low: {
+      marginTop: 10,
       display: 'flex',
+      flexGrow: 1,
+      flexShrink: 1,
       flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+    },
+    menu_button_container_inside: {
+      marginRight: 170
     },
     list_button: {
-      marginTop: 20,
-      paddingVertical: 5,
-      borderRadius: 10,
-      maxWidth: 380,
-      minHeight: 75,
-      alignContent: 'flex-start',
-      alignItems: 'center',
-      display: 'flex',
-      flexDirection: 'row',
-      shadowRadius: 15,
-      shadowOpacity: 0.1
-    },
-    list_information: {
-      marginLeft: 20,
+      marginTop: 10,
+      paddingVertical: 10,
+      borderRadius: 5,
+      backgroundColor: '#F2F2F5',
+      height: 100,
+      maxWidth: 500,
+      marginBottom: 20,
+      marginTop: 10,
+      padding: 20,
+      justifyContent: 'center',
+      alignContent: 'center',
+      textAlign: 'center',
+      display: 'flex'
     },
     list_button_local: {
       display: 'flex',
@@ -167,9 +185,9 @@ const styles = StyleSheet.create({
       fontFamily: 'Arial',
       color: '#363636',
       textAlign: 'center',
-      fontSize: 16.5,
-      marginTop: 10,
+      fontSize: 13,
       width: 100,
+      fontWeight: 'bold'
     }
   }
 );
