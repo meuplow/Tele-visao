@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker';
 import DateField from 'react-native-datefield';
 import styles from '../styles.js';
 
-import { db, storage } from '../../src/config/firebase.js';
+import { db } from '../../src/config/firebase.js';
 import { updateDoc, doc } from 'firebase/firestore';
 
 class ExamInfo {
@@ -103,7 +103,7 @@ export default function Cadastro_Perfil({ route }) {
                 labelDate="Dia"
                 labelMonth="Mês"
                 labelYear="Ano"
-                onValueChange={newBirthDate => setDate(newBirthDate)}
+                onValueChange={newBirthDate => setBirthDate(newBirthDate)}
                 defaultValue={birthDate}
                 styleInput={{ fontSize: 15 }}
                 containerStyle={{ marginVertical: 20 }}
@@ -144,20 +144,20 @@ export default function Cadastro_Perfil({ route }) {
                 placeholder="Digite aqui a matrícula" />
             <Text style={styles.field_name}>Leito atual</Text>
             <TextInput 
-                onChangeText={newCurrentBed => setRace(newCurrentBed)}
+                onChangeText={newCurrentBed => setCurrentBed(newCurrentBed)}
                 defaultValue={currentBed}
                 style={styles.field}
                 placeholder="Digite aqui o número" />
             <Text style={styles.field_name}>Histórico do patiente</Text>
             <TextInput 
-                onChangeText={newPatientHistory => setRace(newPatientHistory)}
+                onChangeText={newPatientHistory => setPatientHistory(newPatientHistory)}
                 defaultValue={patientHistory}
                 multiline={true}
                 style={styles.big_field}
                 placeholder="Digite aqui o histórico do patiente" />
             <Text style={styles.field_name}>Informações da solicitação</Text>
             <TextInput
-                onChangeText={newSolicitationInfo => setRace(newSolicitationInfo)}
+                onChangeText={newSolicitationInfo => setSolicitationInfo(newSolicitationInfo)}
                 defaultValue={solicitationInfo}
                 multiline={true}
                 style={styles.big_field}
