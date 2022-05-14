@@ -38,7 +38,10 @@ export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator>
-        <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
+        <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
+        <Stack.Screen name='Solicitacao_Exame' component={Solicitacao_Exame} />
+        <Stack.Screen name='Ver_Laudos' component={Ver_Laudos} />
+
         <Stack.Screen name='Examinador_Home' component={Examinador_Home} options={{title:'Examinador'}}/>
         <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} options={{title:'Examinador'}}/>
         <Stack.Screen name='Exame' component={Exame} />
@@ -54,12 +57,8 @@ export default function App() {
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
         <Stack.Screen name='Login' component={Login} />
-        
-        <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
-        <Stack.Screen name='Solicitacao_Exame' component={Solicitacao_Exame} />
-        <Stack.Screen name='Ver_Laudos' component={Ver_Laudos} />
 
-        
+        <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
         <Stack.Screen name='Exames_Pendentes_Oftalmologista' component={Exames_Pendentes_Oftalmologista} />
         <Stack.Screen name='Visualizar_Exame' component={Visualizar_Exame} />
       </Stack.Navigator>

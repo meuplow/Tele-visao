@@ -1,124 +1,108 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, TextInput, View, Pressable } from 'react-native';
+import { Text, TextInput, View, Pressable, ActivityIndicatorComponent } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import DateField from 'react-native-datefield';
 import styles from '../styles.js';
 
 import { db } from '../../src/config/firebase.js';
-import { updateDoc, doc } from 'firebase/firestore';
+import { updateDoc, addDoc, doc, collection } from 'firebase/firestore';
 
 class ExamInfo {
-    constructor(name, sex, birth_date, race, hospital, enrollment, current_bed, patient_history, solicitation_info) {
-        this.name = name;
-        this.sex = sex;
-        this.birth_date = birth_date;
-        this.race = race;
-        this.hospital = hospital;
-        this.enrollment = enrollment;
-        this.current_bed = current_bed;
-        this.patient_history = patient_history;
-        this.solicitation_info = solicitation_info;
+    constructor(nome_completo, sexo, data_de_nascimento, raca, local, matricula, leito_atual, historico_paciente, infos_solicitacao) {
+        this.nome_completo = nome_completo;
+        this.sexo = sexo;
+        this.data_de_nascimento = data_de_nascimento;
+        this.raca = raca;
+        this.local = local;
+        this.matricula = matricula;
+        this.leito_atual = leito_atual;
+        this.historico_paciente = historico_paciente;
+        this.infos_solicitacao = infos_solicitacao;
     }
 }
 
-async function addExamInfo(patient, examInfo) {
-    let patientData = patient['dados'];
-    
-    // verificar nome da tabela no banco pra substituir 'exames'
-    const patientRef = doc(db, 'exames', patient['id']);
-
-    patientData['name'] = examInfo.name;
-    patientData['sex'] = examInfo.sex;
-    patientData['birthDate'] = examInfo.birthDate;
-    patientData['race'] = examInfo.race;
-    patientData['hospital'] = examInfo.hospital;
-    patientData['enrollment'] = examInfo.enrollment;
-    patientData['currentBed'] = examInfo.currentBed;
-    patientData['patientHistory'] = examInfo.patientHistory;
-    patientData['solicitationInfo'] = examInfo.solicitationInfo;
-
-    await updateDoc(patientRef, {
-        'name': examInfo.name,
-        'sex': examInfo.sex,
-        'birthDate': examInfo.birthDate,
-        'race': examInfo.race,
-        'hospital': examInfo.hospital,
-        'enrollment': examInfo.enrollment,
-        'currentBed': examInfo.currentBed,
-        'patientHistory': examInfo.patientHistory,
-        'solicitationInfo': examInfo.solicitationInfo
+async function addExamInfo(examInfo) {
+    await addDoc(collection(db, 'exames'), {
+        'nome_completo': examInfo.nome_completo,
+        'sexo': examInfo.sexo,
+        'data_de_nascimento': examInfo.data_de_nascimento,
+        'raca': examInfo.raca,
+        'local': examInfo.local,
+        'matricula': examInfo.matricula,
+        'leito_atual': examInfo.leito_atual,
+        'historico_paciente': examInfo.historico_paciente,
+        'infos_solicitacao': examInfo.infos_solicitacao
     });
 
     return;
 }
 
-export default function Cadastro_Perfil({ route }) {
-    const { patient } = route.params;
+export default function Cadastro_Perfil() {
+    const [nome_completo, set_nome_completo] = useState('');
+    const [sexo, set_sexo] = useState('M');
+    const [data_de_nascimento, set_data_de_nascimento] = useState('');
+    const [raca, set_raca] = useState('Branco');
+    const [local, set_local] = useState('Santa Casa');
+    const [matricula, set_matricula] = useState('');
+    const [leito_atual, set_leito_atual] = useState('');
+    const [historico_paciente, set_historico_paciente] = useState('');
+    const [infos_solicitacao, set_infos_solicitacao] = useState('');
 
-    const [name, setName] = useState('');
-    const [sex, setSex] = useState('');
-    const [birthDate, setBirthDate] = useState('');
-    const [race, setRace] = useState('');
-    const [hospital, setHospital] = useState('');
-    const [enrollment, setEnrollment] = useState('');
-    const [currentBed, setCurrentBed] = useState('');
-    const [patientHistory, setPatientHistory] = useState('');
-    const [solicitationInfo, setSolicitationInfo] = useState('');
-
-    const addInfo = async (patient, examInfo) => {
-        await addExamInfo(patient, examInfo);
+    const addInfo = async (examInfo) => {
+        await addExamInfo(examInfo);
     };
 
     const simpleAlert = () => {
         alert("Exame solicitado com sucesso!");
     }
 
-    const uploadExam = async (patient, examInfo) => {
-        addInfo(patient, new ExamInfo(name, sex, birthDate, race, hospital, enrollment, currentBed, patientHistory, solicitationInfo));
+    const uploadExam = async (examInfo) => {
+        addInfo(new ExamInfo(nome_completo, sexo, data_de_nascimento, raca, local, matricula, leito_atual, historico_paciente, infos_solicitacao));
         simpleAlert();
     }
 
-    var options = ["Santa Casa","Moinhos de Vento","Mãe de Deus"];
+    var options = ["Santa Casa", "Moinhos de Vento", "Mãe de Deus"];
 
-    return(
+    return (
         <View style={styles.container}>
             <Text style={styles.title}>Solicitar exame</Text>
             <Text style={styles.field_name}>Nome completo</Text>
             <TextInput
-                onChangeText={newName => setName(newName)}
-                defaultValue={name}
-                style={styles.field} 
+                onChangeText={new_nome_completo => set_nome_completo(new_nome_completo)}
+                defaultValue={nome_completo}
+                style={styles.field}
                 placeholder="Digite aqui o nome completo" />
             <Text style={styles.field_name}>Sexo</Text>
             <Picker
                 style={styles.picker}
-                onValueChange={newSex => setSex(newSex)}
-                defaultValue={sex}>
+                onValueChange={new_sexo => set_sexo(new_sexo)}
+                defaultValue={sexo}>
                 <Picker.Item style={styles.text} label='M' value='M' />
                 <Picker.Item style={styles.text} label='F' value='F' />
             </Picker>
             <Text style={styles.field_name}>Data de nascimento</Text>
-            <DateField 
+            <DateField
                 labelDate="Dia"
                 labelMonth="Mês"
                 labelYear="Ano"
-                onValueChange={newBirthDate => setBirthDate(newBirthDate)}
-                defaultValue={birthDate}
-                styleInput={{ fontSize: 15 }}
+                defaultValue={data_de_nascimento}
+                minimumDate={new Date(1900, 1, 1)}
                 containerStyle={{ marginVertical: 20 }}
-                styleInput={{ width: 244/3,
-                            height: 50,
-                            backgroundColor: '#F2F2F5',
-                            marginLeft: 2,
-                            marginRight: 2
-                            }}
-                onSubmit={(value) => console.log(value)}
+                styleInput={{
+                    fontSize: 15,
+                    width: 244 / 3,
+                    height: 50,
+                    backgroundColor: '#F2F2F5',
+                    marginLeft: 2,
+                    marginRight: 2
+                }}
+                onSubmit={new_data_de_nascimento => set_data_de_nascimento(new_data_de_nascimento)}
             />
             <Text style={styles.field_name}>Raça</Text>
-            <Picker 
-                onValueChange={newRace => setRace(newRace)}
-                defaultValue={race}
+            <Picker
+                onValueChange={new_raca => set_raca(new_raca)}
+                defaultValue={raca}
                 style={styles.picker}>
                 <Picker.Item label='Branco' value='Branco' />
                 <Picker.Item label='Negro' value='Negro' />
@@ -127,43 +111,43 @@ export default function Cadastro_Perfil({ route }) {
                 <Picker.Item label='Indígena' value='Indígena' />
                 <Picker.Item label='Outro' value='Outro' />
             </Picker>
-            <Text style={styles.field_name}>Hospital</Text>
-            <Picker 
-                onValueChange={newHospital => setHospital(newHospital)}
-                defaultValue={hospital}
+            <Text style={styles.field_name}>local</Text>
+            <Picker
+                onValueChange={new_local => set_local(new_local)}
+                defaultValue={local}
                 style={styles.picker}>
                 {options.map((item, index) => {
                     return (<Picker.Item label={item} value={index} key={index} />);
                 })}
             </Picker>
             <Text style={styles.field_name}>Matrícula</Text>
-            <TextInput 
-                onChangeText={newEnrollment => setEnrollment(newEnrollment)}
-                defaultValue={enrollment}
+            <TextInput
+                onChangeText={new_matricula => set_matricula(new_matricula)}
+                defaultValue={matricula}
                 style={styles.field}
                 placeholder="Digite aqui a matrícula" />
             <Text style={styles.field_name}>Leito atual</Text>
-            <TextInput 
-                onChangeText={newCurrentBed => setCurrentBed(newCurrentBed)}
-                defaultValue={currentBed}
+            <TextInput
+                onChangeText={new_leito_atual => set_leito_atual(new_leito_atual)}
+                defaultValue={leito_atual}
                 style={styles.field}
                 placeholder="Digite aqui o número" />
             <Text style={styles.field_name}>Histórico do patiente</Text>
-            <TextInput 
-                onChangeText={newPatientHistory => setPatientHistory(newPatientHistory)}
-                defaultValue={patientHistory}
+            <TextInput
+                onChangeText={new_historico_paciente => set_historico_paciente(new_historico_paciente)}
+                defaultValue={historico_paciente}
                 multiline={true}
                 style={styles.big_field}
                 placeholder="Digite aqui o histórico do patiente" />
             <Text style={styles.field_name}>Informações da solicitação</Text>
             <TextInput
-                onChangeText={newSolicitationInfo => setSolicitationInfo(newSolicitationInfo)}
-                defaultValue={solicitationInfo}
+                onChangeText={new_infos_solicitacao => set_infos_solicitacao(new_infos_solicitacao)}
+                defaultValue={infos_solicitacao}
                 multiline={true}
                 style={styles.big_field}
                 placeholder="Digite aqui as informações da solicitação do patiente" />
-            <Pressable 
-                onPress={ () => uploadExam(patient, new ExamInfo(name, sex, birth_date, race, hospital, enrollment, current_bed, patient_history, solicitation_info)) }
+            <Pressable
+                onPress={() => uploadExam(new ExamInfo(nome_completo, sexo, data_de_nascimento, raca, local, matricula, leito_atual, historico_paciente, infos_solicitacao))}
                 style={styles.button}>
                 <Text style={styles.text}>Cadastrar</Text>
             </Pressable>
