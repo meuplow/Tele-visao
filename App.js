@@ -8,7 +8,10 @@ import Cadastro_Perfil from './views/Home/Cadastro_Perfil';
 
 import Oftalmologista_Home from './views/Oftalmologista/Oftalmologista_Home';
 import Exames_Pendentes_Oftalmologista from './views/Oftalmologista/Exames_Pendentes_Oftalmologista';
-import Visualizar_Exame from './views/Oftalmologista/Visualizar_Exame';
+import Laudo from './views/Oftalmologista/Laudo';
+import Ver_Laudo from './views/Oftalmologista/Ver_Laudo';
+import Laudos_Feitos from './views/Oftalmologista/Laudos_Feitos';
+
 
 import Admin_Home from './views/Admin/Admin_Home';
 import Aceita_Usuarios from './views/Admin/Aceita_Usuarios';
@@ -44,6 +47,11 @@ export default function App() {
 
         <Stack.Screen name='Examinador_Home' component={Examinador_Home} options={{title:'Examinador'}}/>
         <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} options={{title:'Examinador'}}/>
+        <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
+        <Stack.Screen name='Exames_Pendentes_Oftalmologista' component={Exames_Pendentes_Oftalmologista} />
+        <Stack.Screen name='Laudo' component={Laudo} />
+        <Stack.Screen name='Laudos_Feitos' component={Laudos_Feitos} />
+
         <Stack.Screen name='Exame' component={Exame} />
         <Stack.Screen name='Atribuir_Coleta' component={Atribuir_Coleta} options={{title:'Examinador'}}/>
         <Stack.Screen name='Exames_Atribuidos' component={Exames_Atribuidos} options={{title:'Examinador'}}/>
@@ -58,9 +66,6 @@ export default function App() {
         <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
         <Stack.Screen name='Login' component={Login} />
 
-        <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
-        <Stack.Screen name='Exames_Pendentes_Oftalmologista' component={Exames_Pendentes_Oftalmologista} />
-        <Stack.Screen name='Visualizar_Exame' component={Visualizar_Exame} />
       </Stack.Navigator>
     </NavigationContainer>  
   );

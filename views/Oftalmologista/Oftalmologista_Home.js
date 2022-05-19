@@ -14,7 +14,7 @@ export default function Oftalmologista_Home({navigation}) {
         <Icon name="alert" size={35} color='#F08F5F' />
         <Text style={styles.text_menu_button}>Exames pendentes</Text>
       </Pressable>
-      <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Ver_Laudos')}>
+      <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Laudos_Feitos')}>
         <Icon name="clipboard-text-multiple" size={35} color='#F0D05F' />
         <Text style={styles.text_menu_button}>Ver laudos</Text>
       </Pressable>
