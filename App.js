@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from './views/Home/Home';
-import Login from './views/Home/Login';
+import Login from './views/Login/Login';
 import Cadastro_Perfil from './views/Home/Cadastro_Perfil';
 
 import Oftalmologista_Home from './views/Oftalmologista/Oftalmologista_Home';
@@ -38,6 +38,9 @@ export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator>
+
+        <Stack.Screen name='Login' component={Login} options={{title:'Tele-visão'}}/>
+
         <Stack.Screen name='Examinador_Home' component={Examinador_Home} options={{title:'Examinador'}}/>
         <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} options={{title:'Examinador'}}/>
         <Stack.Screen name='Exame' component={Exame} />
@@ -52,7 +55,6 @@ export default function App() {
 
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
-        <Stack.Screen name='Login' component={Login} />
         
         <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
         <Stack.Screen name='Solicitacao_Exame' component={Solicitacao_Exame} />
