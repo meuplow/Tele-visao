@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, TextInput, View, Pressable, Alert } from 'react-native';
+import { Text, TextInput, View, Pressable } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import Icon_person from 'react-native-vector-icons/Fontisto';
 
 import styles from '../styles.js';
 import { db, storage } from '../../src/config/firebase.js';
@@ -53,7 +54,8 @@ async function addExamInfo(patient, examInfo) {
     // atualiza somente os campos image e description a partir de um JSON
     await updateDoc(patientRef, {
         'image': imageUrl,
-        'description': examInfo.description
+        'description': examInfo.description,
+        'coletado': true,
     });
     return;
 }
@@ -92,21 +94,29 @@ export default function Exame({ route, navigation }) {
     return (
         <View style={styles.container}>
             {/* <View style={styles.list_button_local}><Text style={styles.field_name_left}>{patient['dados']['nome_completo']}</Text></View> */}
-            <Text style={styles.field_name_left}>{patient['dados']['nome_completo']}</Text>
-            <Pressable style={styles.list_button} onPress={ () => pickImage() }>
-                <Text style={styles.field_name}>Selecionar imagem da galeria</Text>
-            </Pressable>
-            <Text style={styles.field_name}>Descrição</Text>
-            <TextInput 
-                onChangeText={newDesc => setDescription(newDesc)}
-                defaultValue={description}
-                id="descricao"
-                multiline={true}
-                style={styles.big_field}
-                placeholder="Informe o olho que a imagem foi capturada e demais informações relevantes" />
-            <Pressable onPress={ () => uploadExam(patient, new ExamInfo(image, description)) } style={styles.button}>
+            <Text style={styles.field_name}>{patient['dados']['nome_completo']}</Text>
+            <View style={styles.container_exame}>
+                <Pressable style={styles.list_button} onPress={ () => pickImage() }>
+                    <Text style={styles.field_name}>Selecionar imagem da galeria</Text>
+                </Pressable></View>
+            {image&& <View style={styles.container_exame}>
+                <Icon_person style={styles.camera_icon} name="check" size={20} color='#A3E8A3'/>
+                <Text style={styles.subtitle}>Imagem Carregada</Text>
+            </View>}
+                <Text style={styles.field_name}>Descrição</Text>
+            <View style={styles.container_exame}>
+                <TextInput 
+                    onChangeText={newDesc => setDescription(newDesc)}
+                    defaultValue={description}
+                    id="descricao"
+                    multiline={true}
+                    style={styles.big_field}
+                    placeholder="Informe o olho que a imagem foi capturada e demais informações relevantes" />
+            </View>
+            <View style={styles.container_exame}>
+            <Pressable onPress={ () => uploadExam(patient, new ExamInfo(image, description)) } style={styles.button_exam}>
                 <Text style={styles.text}>Enviar exame</Text>
-            </Pressable>
+            </Pressable></View>
             <StatusBar style="auto" />
         </View>
     );

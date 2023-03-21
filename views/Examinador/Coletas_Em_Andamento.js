@@ -9,14 +9,11 @@ import { collection, getDocs, updateDoc, doc, query, where } from 'firebase/fire
 
 
 export default function Ver_Laudos({navigation}) {
-    // var pending_exams = [['Santa Casa','Carolina'],
-    //                     ['Moinhos de Vento','Carlos'],
-    //                     ['Mãe de Deus','José']];
 
     async function getPendingExams(){
         let exams = new Array();
         let examsRef = collection(db, "exames");
-        let acceptedQuery = query(examsRef, where("aceito", "==", true));
+        let acceptedQuery = query(examsRef, where("aceito", "==", true), where("coletado", "==", false));
         let examsSnapshot = await getDocs(acceptedQuery);
         examsSnapshot.forEach(exam => {
                 exams.push({'id': exam.id, 'dados': exam.data()});
@@ -57,18 +54,18 @@ export default function Ver_Laudos({navigation}) {
     return (
         <View style={styles.container}>
             <Text style={styles.subtitle}>Você é o examinador da semana!</Text>
-            <Text style={styles.title}>Exames pendentes</Text>
+            <Text style={styles.title}>Coletas em andamento</Text>
             {!isLoaded && <p>Carregando...</p>}
             {isLoaded && exams.length == 0  && <p>Nenhum exame em andamento.</p>}
             {
                 isLoaded && exams.length > 0 && exams.map(patient => {
                     return (
-                        <Pressable style={styles.list_button} onPress={() => start_exam(patient)}>  
+                        <Pressable key={patient.id} style={styles.list_button} onPress={() => start_exam(patient)}>  
                             <View style={styles.list_button_local}>
-                                <Icon name="hospital" size={25}/>
-                                <Text style={styles.list_subtitle}>{patient['dados']["local"]}</Text>
+                                <Icon style={styles.camera_icon} name="hospital" color='#363636' size={20}/>
+                                <Text style={styles.subtitle}>{patient['dados']["local"]}</Text>
                             </View>
-                            <Text style={styles.list_title}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                            <Text style={styles.title}>Paciente: {patient['dados']["nome_completo"]}</Text>
                         </Pressable>
                 )
             })

@@ -32,10 +32,12 @@ export default function Examinador_Home({navigation}) {
         <Icon name="alert" size={35} color='#F08F5F' />
         <Text style={styles.text_menu_button}>Exames atribuídos</Text>
       </Pressable> */}
+      <View style={styles.menu_button_container_low}>
+      <View style={styles.menu_button_container_inside}>
       <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Coletas_Feitas')}>
         <Icon name="clipboard-check-multiple-outline" size={40} color='#5CE1CD' />
         <Text style={styles.text_menu_button}>Coletas feitas</Text>
-      </Pressable>
+      </Pressable></View></View>
       <StatusBar style="auto" />
     </View>
   );

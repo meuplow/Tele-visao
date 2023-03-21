@@ -38,13 +38,17 @@ export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator>
-        <Stack.Screen name='Examinador_Home' component={Examinador_Home} />
-        <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} />
+        <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
+        <Stack.Screen name='Solicitacao_Exame' component={Solicitacao_Exame} />
+        <Stack.Screen name='Ver_Laudos' component={Ver_Laudos} />
+
+        <Stack.Screen name='Examinador_Home' component={Examinador_Home} options={{title:'Examinador'}}/>
+        <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} options={{title:'Examinador'}}/>
         <Stack.Screen name='Exame' component={Exame} />
-        <Stack.Screen name='Atribuir_Coleta' component={Atribuir_Coleta} />
-        <Stack.Screen name='Exames_Atribuidos' component={Exames_Atribuidos} />
-        <Stack.Screen name='Coletas_Em_Andamento' component={Coletas_Em_Andamento} />
-        <Stack.Screen name='Coletas_Feitas' component={Coletas_Feitas} />
+        <Stack.Screen name='Atribuir_Coleta' component={Atribuir_Coleta} options={{title:'Examinador'}}/>
+        <Stack.Screen name='Exames_Atribuidos' component={Exames_Atribuidos} options={{title:'Examinador'}}/>
+        <Stack.Screen name='Coletas_Em_Andamento' component={Coletas_Em_Andamento} options={{title:'Examinador'}}/>
+        <Stack.Screen name='Coletas_Feitas' component={Coletas_Feitas} options={{title:'Examinador'}}/>
 
         <Stack.Screen name='Admin_Home' component={Admin_Home} />
         <Stack.Screen name='Aceita_Usuarios' component={Aceita_Usuarios} />
@@ -53,10 +57,6 @@ export default function App() {
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
         <Stack.Screen name='Login' component={Login} />
-        
-        <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
-        <Stack.Screen name='Solicitacao_Exame' component={Solicitacao_Exame} />
-        <Stack.Screen name='Ver_Laudos' component={Ver_Laudos} />
 
         <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
         <Stack.Screen name='Exames_Pendentes_Oftalmologista' component={Exames_Pendentes_Oftalmologista} />
