@@ -6,7 +6,7 @@ import DateField from 'react-native-datefield';
 import styles from '../styles.js';
 
 import { db } from '../../src/config/firebase.js';
-import { updateDoc, addDoc, doc, collection } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 
 class ExamInfo {
     constructor(nome_completo, sexo, data_de_nascimento, raca, local, matricula, leito_atual, historico_paciente, infos_solicitacao) {

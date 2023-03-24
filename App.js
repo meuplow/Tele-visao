@@ -11,7 +11,9 @@ import Exames_Pendentes_Oftalmologista from './views/Oftalmologista/Exames_Pende
 import Visualizar_Exame from './views/Oftalmologista/Visualizar_Exame';
 
 import Admin_Home from './views/Admin/Admin_Home';
-import Aceita_Usuarios from './views/Admin/Aceita_Usuarios';
+import Cadastra_Local from './views/Admin/Cadastra_Local';
+import Autoriza_Usuarios from './views/Admin/Autoriza_Usuarios';
+import Verifica_Usuarios from './views/Admin/Verifica_Usuarios';
 import Seleciona_Examinador_Da_Semana from './views/Admin/Seleciona_Examinador_Da_Semana';
 
 import Examinador_Home from './views/Examinador/Examinador_Home';
@@ -39,7 +41,9 @@ export default function App() {
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator>
         <Stack.Screen name='Admin_Home' component={Admin_Home} />
-        <Stack.Screen name='Aceita_Usuarios' component={Aceita_Usuarios} />
+        <Stack.Screen name='Cadastra_Local' component={Cadastra_Local} />
+        {/* <Stack.Screen name='Autoriza_Usuarios' component={Autoriza_Usuarios} />
+        <Stack.Screen name='Verifica_Usuarios' component={Verifica_Usuarios} /> */}
         <Stack.Screen name='Seleciona_Examinador_Da_Semana' component={Seleciona_Examinador_Da_Semana} />
 
         <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
