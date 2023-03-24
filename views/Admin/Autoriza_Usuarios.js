@@ -27,8 +27,8 @@ async function addUsuarioInfo(usuarioInfo) {
 
 export default function Cadastra_Usuario() {
     const [email, set_email] = useState('');
-    const [perfil, set_perfil] = useState('');
-    const [id_local, set_id_local] = useState('');
+    const [perfil, set_perfil] = useState('Requisitante');
+    const [id_local, set_id_local] = useState('R'); // PRECISA SUBSTITUIR
 
     const addInfo = async (usuarioInfo) => {
         await addUsuarioInfo(usuarioInfo);
@@ -70,7 +70,7 @@ export default function Cadastra_Usuario() {
                 <Picker.Item style={styles.text} label='F' value='F' />
             </Picker>
             <Pressable
-                onPress={() => uploadUsuario(new UsuarioInfo(nome_usuario, administrador))}
+                onPress={() => uploadUsuario(new UsuarioInfo(email, perfil, id_local))}
                 style={styles.button}>
                 <Text style={styles.text}>Cadastrar</Text>
             </Pressable>
