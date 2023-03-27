@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, View, Pressable } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import styles from '../styles.js';
 
 import { db } from '../../src/config/firebase.js';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, query, getDocs } from 'firebase/firestore';
 
 class UsuarioInfo {
     constructor(email, perfil, id_local) {
@@ -27,8 +27,8 @@ async function addUsuarioInfo(usuarioInfo) {
 
 export default function Cadastra_Usuario() {
     const [email, set_email] = useState('');
-    const [perfil, set_perfil] = useState('Requisitante');
-    const [id_local, set_id_local] = useState('R'); // PRECISA SUBSTITUIR
+    const [perfil, set_perfil] = useState('');
+    const [id_local, set_id_local] = useState('');
 
     const addInfo = async (usuarioInfo) => {
         await addUsuarioInfo(usuarioInfo);
@@ -42,6 +42,27 @@ export default function Cadastra_Usuario() {
         addInfo(new UsuarioInfo(email, perfil, id_local));
         simpleAlert();
     }
+
+    async function getLocais(){
+        let locais = new Array();
+        let locaisRef = collection(db, "local");
+        let acceptedQuery = query(locaisRef);
+        let locaisSnapshot = await getDocs(acceptedQuery);
+        locaisSnapshot.forEach(local => {
+            locais.push({'id': local.id, 'dados': local.data()});
+        });
+        return locais;
+    }
+
+    const [locais, setLocais] = useState([]);
+
+    useEffect(() => {
+        const getLocs = async () => {
+          const respLocais = await getLocais();
+          setLocais(respLocais);
+        }
+        getLocs();
+    }, []);
 
     return(
         <View style={styles.container}>
@@ -66,8 +87,11 @@ export default function Cadastra_Usuario() {
                 style={styles.picker}
                 onValueChange={new_local => set_id_local(new_local)}
                 defaultValue={id_local}>
-                <Picker.Item style={styles.text} label='M' value='M' />
-                <Picker.Item style={styles.text} label='F' value='F' />
+                {locais.map(local => {
+                    return (
+                        <Picker.Item style={styles.text} key={local.id} label={local['dados']["nome_local"]} value={local.id} />
+                    )
+                })}
             </Picker>
             <Pressable
                 onPress={() => uploadUsuario(new UsuarioInfo(email, perfil, id_local))}

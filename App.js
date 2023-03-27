@@ -43,7 +43,7 @@ export default function App() {
         <Stack.Screen name='Admin_Home' component={Admin_Home} />
         <Stack.Screen name='Cadastra_Local' component={Cadastra_Local} />
         <Stack.Screen name='Autoriza_Usuarios' component={Autoriza_Usuarios} />
-        {/* <Stack.Screen name='Verifica_Usuarios' component={Verifica_Usuarios} /> */}
+        <Stack.Screen name='Verifica_Usuarios' component={Verifica_Usuarios} />
         <Stack.Screen name='Seleciona_Examinador_Da_Semana' component={Seleciona_Examinador_Da_Semana} />
 
         <Stack.Screen name='Home' component={Home} />

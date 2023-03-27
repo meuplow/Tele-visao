@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Pressable } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../styles.js';
 
 import { db } from '../../src/config/firebase.js';
