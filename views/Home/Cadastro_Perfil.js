@@ -9,7 +9,7 @@ export default function Cadastro_Perfil() {
     var profile_options = ["Examinador","Requisitante","Oftalmologista"];
 
     return(
-        <View style={styles.container}>
+        <View style={styles.containerCentralize}>
             <Text style={styles.title}>Cadastro de novo perfil</Text>
             <Text style={styles.field_name}>Nome completo</Text>
             <TextInput style={styles.field} placeholder="Digite aqui o seu nome completo" />
