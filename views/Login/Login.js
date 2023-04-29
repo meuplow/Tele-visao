@@ -15,9 +15,6 @@ import { createUserWithEmailAndPassword,
 export default function Login({navigation}){
   const emailRef = useRef()
   const passwordRef = useRef()
- // const login = useAuth()
-  // const [emailRef, setEmail] = useState('');
-  // const [passwordRef, setPassword] = useState('');
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -28,60 +25,48 @@ export default function Login({navigation}){
   const [loginPassword, setLoginPassword] = useState("");
 
   const [user, setUser] = useState({});
+  const [emailNotFound, setEmailNotFound] = useState(false);
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   })
 
-  const register = async () => {
-    try{
-      const user = await createUserWithEmailAndPassword(
-        auth, 
-        loginEmail, 
-        loginPassword
-      );
-      console.log(user)
-    } catch (error){
-      console.log(error.message);
-    }
-    
-  };
-
   const login = async () => {
     try{
-      const user = await signInWithEmailAndPassword(
-        auth, 
-        loginEmail, 
-        loginPassword
-      );
-      getUser();
+      let users = new Array();
+      let userRef = collection(db, "usuario");
+      let acceptedQuery = query(userRef, where("email", "==", loginEmail));
+      let userSnapshot = await getDocs(acceptedQuery);
+      userSnapshot.forEach(u => {
+        users.push({'dados': u.data()});
+      });
+
+      if (users.length === 0) {
+        setEmailNotFound(true);
+        return;
+      }
+
+      if(users[0].dados["perfil"] == "examinador"){
+        navigation.navigate('Examinador_Home', {
+          users: users
+      })
+      } else if(users[0].dados["perfil"] == "requisitante"){
+        navigation.navigate('Requisitante_Home', {
+          users: users
+      })
+      } else if(users[0].dados["perfil"] == "oftalmologista"){
+        navigation.navigate('Oftalmologista_Home', {
+          users: users
+      })
+      }
+
     } catch (error){
       console.log(error.message);
     }
   }
 
-  async function getUser(){
-    let users = new Array();
-    let userRef = collection(db, "usuario");
-    let acceptedQuery = query(userRef, where("email", "==", loginEmail));
-    let userSnapshot = await getDocs(acceptedQuery);
-    userSnapshot.forEach(u => {
-      users.push({'dados': u.data()});
-    });
-
-    if(users[0].dados["perfil"] == "examinador"){
-      navigation.navigate('Examinador_Home', {
-        users: users
-    })
-    } else if(users[0].dados["perfil"] == "requisitante"){
-      navigation.navigate('Requisitante_Home', {
-        users: users
-    })
-    } else if(users[0].dados["perfil"] == "oftalmologista"){
-      navigation.navigate('Oftalmologista_Home', {
-        users: users
-    })
-    }
+  const signUp = async () => {
+    navigation.navigate('Cadastro_Perfil')
   }
 
   const logout = async () => {
@@ -94,11 +79,30 @@ export default function Login({navigation}){
           {/* <Text>{error && <Alert variant="danger">{error}</Alert>}</Text> */}
           <Text style={loginStyle.titleLogin}>Login</Text>
           <Text style={loginStyle.textLogin}>E-mail</Text>
-          <TextInput style={loginStyle.fieldLogin} placeholder="Digite seu e-mail" type="email" ref={emailRef} onChange={(event) => {setLoginEmail(event.target.value)}} required/>
+          <TextInput 
+            style={[
+              loginStyle.fieldLogin, 
+              emailNotFound && {borderColor: 'red', borderWidth: 1}
+            ]} 
+            placeholder="Digite seu e-mail" 
+            type="email" 
+            ref={emailRef} 
+            value={loginEmail}
+            onChangeText={(value) => {setLoginEmail(value); setEmailNotFound(false);}}
+            required
+          />
+          {emailNotFound && <Text style={{color: 'red'}}>Email não encontrado.</Text>}
           <View style={loginStyle.containerLeft}>
             <Text style={loginStyle.textLogin}>Senha</Text>
           </View>
           <TextInput secureTextEntry={true} style={loginStyle.fieldLogin} placeholder="Digite sua senha" type="password" ref={passwordRef} onChange={(event) => {setLoginPassword(event.target.value)}}/>
+          <Text style={loginStyle}>
+            Não tem uma conta?{' '} 
+            <Text style={loginStyle.link} onPress={signUp}>
+              Cadastre-se
+            </Text>
+          </Text>
+         
           <View style={loginStyle.containerCentralize}>
             <Pressable style={loginStyle.buttonLogin} type="submit" disabled={loading} onPress={login}>
               <Text style={loginStyle.titleButton}>Entrar</Text>

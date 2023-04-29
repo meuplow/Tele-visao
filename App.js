@@ -41,8 +41,8 @@ export default function App() {
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator>      
         
+      <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
-        <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Admin_Home' component={Admin_Home} />
         <Stack.Screen name='Cadastra_Local' component={Cadastra_Local} />
         <Stack.Screen name='Autoriza_Usuarios' component={Autoriza_Usuarios} />

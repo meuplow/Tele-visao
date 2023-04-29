@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       color: '#363636'
     },
+    link:{
+      fontWeight: 'bold',
+    },
     containerCentralize:{
       display: 'flex',
       textAlign: 'center',
