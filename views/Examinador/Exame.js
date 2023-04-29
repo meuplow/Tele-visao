@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, TextInput, View, Pressable, Alert } from 'react-native';
+import { Text, TextInput, View, Pressable } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Icon_person from 'react-native-vector-icons/Fontisto';
 

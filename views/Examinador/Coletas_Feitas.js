@@ -59,7 +59,7 @@ export default function Coletas_Feitas({navigation}) {
             {
                 isLoaded && exams.length > 0 && exams.map(patient => {
                     return (
-                        <Pressable key={patient.id} style={styles.list_button} onPress={() => start_exam(patient)}>  
+                        <Pressable key={patient.id} style={styles.list_button} /*onPress={() => start_exam(patient)}*/>  
                             <View style={styles.list_button_local}>
                                 <Icon style={styles.camera_icon} name="hospital" color='#363636' size={20}/>
                                 <Text style={styles.subtitle}>{patient['dados']["local"]}</Text>
