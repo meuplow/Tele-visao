@@ -67,15 +67,15 @@ export default function Login({navigation}){
       userGlobal.examinador_da_semana = users[0].dados["examinador_da_semana"];
       userGlobal.name = users[0].dados["nome"];
 
-      if(users[0].dados["perfil"] == "examinador"){
+      if(users[0].dados["perfil"] == "Examinador"){
         navigation.navigate('Examinador_Home', {
           users: users
       })
-      } else if(users[0].dados["perfil"] == "requisitante"){
+      } else if(users[0].dados["perfil"] == "Requisitante"){
         navigation.navigate('Requisitante_Home', {
           users: users
       })
-      } else if(users[0].dados["perfil"] == "oftalmologista"){
+      } else if(users[0].dados["perfil"] == "Oftalmologista"){
         navigation.navigate('Oftalmologista_Home', {
           users: users
       })
