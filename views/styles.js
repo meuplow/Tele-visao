@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
       fontFamily: 'Arial',
       fontWeight: 'bold',
       color: '#363636',
-      margin: 20,
+      marginBottom: 20,
+      marginTop: 20,
     },
     menu: {
       margin: 40,

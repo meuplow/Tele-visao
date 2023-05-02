@@ -5,6 +5,7 @@ import loginStyle from  './LoginStyle.js';
 import { db } from '../../src/config/firebase.js';
 import { useAuth } from '../../src/context/AuthContext.js';
 import { auth } from '../../src/config/firebase.js';
+import { userGlobal } from '../../global.js';
 import { collection, getDocs, updateDoc, doc,  query, where} from 'firebase/firestore';
 import { createUserWithEmailAndPassword,
           onAuthStateChanged,
@@ -26,12 +27,32 @@ export default function Login({navigation}){
 
   const [user, setUser] = useState({});
   const [emailNotFound, setEmailNotFound] = useState(false);
+  const [wrongPassword, setWrongPassword] = useState(false);
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   })
 
   const login = async () => {
+    try{
+      await signInWithEmailAndPassword(
+        auth, 
+        loginEmail, 
+        loginPassword
+      );
+      getUser();
+    } catch (error){
+      if(error.code === "auth/user-not-found"){
+        setEmailNotFound(true);
+      }
+      if(error.code === "auth/wrong-password"){
+        setWrongPassword(true);
+      }
+      console.log(error.message);
+    }
+  }
+
+  const getUser = async () => {
     try{
       let users = new Array();
       let userRef = collection(db, "usuario");
@@ -41,10 +62,10 @@ export default function Login({navigation}){
         users.push({'dados': u.data()});
       });
 
-      if (users.length === 0) {
-        setEmailNotFound(true);
-        return;
-      }
+      userGlobal.email = users[0].dados["email"];
+      userGlobal.perfil = users[0].dados["perfil"];
+      userGlobal.examinador_da_semana = users[0].dados["examinador_da_semana"];
+      userGlobal.name = users[0].dados["nome"];
 
       if(users[0].dados["perfil"] == "examinador"){
         navigation.navigate('Examinador_Home', {
@@ -92,10 +113,23 @@ export default function Login({navigation}){
             required
           />
           {emailNotFound && <Text style={{color: 'red'}}>Email não encontrado.</Text>}
-          <View style={loginStyle.containerLeft}>
+          <View style={loginStyle.containerLeft}> 
             <Text style={loginStyle.textLogin}>Senha</Text>
           </View>
-          <TextInput secureTextEntry={true} style={loginStyle.fieldLogin} placeholder="Digite sua senha" type="password" ref={passwordRef} onChange={(event) => {setLoginPassword(event.target.value)}}/>
+          <TextInput
+            secureTextEntry={true}
+            style={[
+              loginStyle.fieldLogin,
+              wrongPassword && {borderColor: 'red', borderWidth: 1}
+            ]}
+            placeholder="Digite sua senha"
+            type="password"
+            ref={passwordRef}
+            value={loginPassword}
+            onChangeText={(value) => {setLoginPassword(value); setWrongPassword(false);}}
+            required
+          />
+          {wrongPassword && <Text style={{color: 'red'}}>Senha incorreta.</Text>}
           <Text style={loginStyle}>
             Não tem uma conta?{' '} 
             <Text style={loginStyle.link} onPress={signUp}>

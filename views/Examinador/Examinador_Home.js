@@ -13,7 +13,8 @@ export default function Examinador_Home({ route, navigation }) {
     <View style={styles.container}>
       <View style={styles.welcome}>
         <div>
-          <Text style={styles.title}>Bem-vinda</Text>
+          {/* <Text style={[styles.title, {marginLeft: -20}]}>Bem-vindo(a)</Text> */}
+          <Text style={styles.title}>Bem-vindo(a)</Text>
           <br/>
           <Text style={styles.subtitle}>{users[0]['dados']['nome']}</Text>
         </div>
