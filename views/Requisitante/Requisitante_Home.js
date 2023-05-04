@@ -8,19 +8,16 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 export default function Requisitante_Home({ route, navigation }) {
   const { users } = route.params;
-  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleLogout = () => {
     userGlobal.email = null
     userGlobal.perfil = null
     userGlobal.examinador_da_semana = null
     userGlobal.name = null
+    userGlobal.isLoggedIn = false
     navigation.navigate('Login');
   };
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
 
   return (
     <View style={styles.container}>

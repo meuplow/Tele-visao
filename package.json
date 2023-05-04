@@ -26,7 +26,6 @@
     "expo-status-bar": "~1.2.0",
     "firebase": "^9.8.1",
     "firebase-admin": "^10.2.0",
-    "gh-pages": "^3.2.3",
     "global": "^4.4.0",
     "react": "17.0.1",
     "react-bootstrap": "^2.4.0",
@@ -50,6 +49,7 @@
     "@babel/core": "^7.12.9",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.66.15",
+    "gh-pages": "^3.2.3",
     "typescript": "~4.5.5"
   },
   "private": true,

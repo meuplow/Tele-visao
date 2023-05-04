@@ -9,18 +9,14 @@ import { userGlobal } from '../../global.js';
 
 export default function Examinador_Home({ route, navigation }) {
   const { users } = route.params;
-  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleLogout = () => {
     userGlobal.email = null
     userGlobal.perfil = null
     userGlobal.examinador_da_semana = null
     userGlobal.name = null
+    userGlobal.isLoggedIn = false
     navigation.navigate('Login');
-  };
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
   };
 
   return (
@@ -49,10 +45,6 @@ export default function Examinador_Home({ route, navigation }) {
         <Text style={styles.text_menu_button}>Exames pendentes</Text>
       </Pressable>
       </View>
-      {/* <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Exames_Atribuidos')}>
-        <Icon name="alert" size={35} color='#F08F5F' />
-        <Text style={styles.text_menu_button}>Exames atribuídos</Text>
-      </Pressable> */}
       <View style={styles.menu_button_container_low}>
       <View style={styles.menu_button_container_inside}>
       <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Coletas_Feitas')}>

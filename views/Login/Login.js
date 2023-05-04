@@ -16,16 +16,12 @@ import { createUserWithEmailAndPassword,
 export default function Login({navigation}){
   const emailRef = useRef()
   const passwordRef = useRef()
-  const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
+  const [user, setUser] = useState(null)
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  const [user, setUser] = useState({});
   const [emailNotFound, setEmailNotFound] = useState(false);
   const [wrongPassword, setWrongPassword] = useState(false);
 
@@ -66,6 +62,7 @@ export default function Login({navigation}){
       userGlobal.perfil = users[0].dados["perfil"];
       userGlobal.examinador_da_semana = users[0].dados["examinador_da_semana"];
       userGlobal.name = users[0].dados["nome"];
+      userGlobal.isLoggedIn = true;
 
       if(users[0].dados["perfil"] == "Examinador"){
         navigation.navigate('Examinador_Home', {
@@ -77,6 +74,10 @@ export default function Login({navigation}){
       })
       } else if(users[0].dados["perfil"] == "Oftalmologista"){
         navigation.navigate('Oftalmologista_Home', {
+          users: users
+      })
+      } else if(users[0].dados["perfil"] == "Administrador"){
+        navigation.navigate('Admin_Home', {
           users: users
       })
       }
