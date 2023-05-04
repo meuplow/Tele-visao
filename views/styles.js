@@ -8,6 +8,38 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       color: '#363636'
     },
+    dropdown: {
+      position: 'absolute',
+      backgroundColor: '#F7EFEE',
+      borderColor: '#F0D05F',
+      borderRadius: 10,
+      top: 50,
+      right: 2,
+      minWidth: 80,
+      zIndex: 1,
+      alignItems: 'flex-end',
+    }, 
+    dropdownText: {
+      marginBottom: 10,
+    },
+    dropdown_item: {
+      position: 'absolute',
+      flex: 1,
+      borderRadius: 10,
+      marginTop: 50,
+      marginRight: 40,
+      backgroundColor: '#F7EFEE',
+      paddingTop: 10,
+      borderColor: '#F0D05F',
+      justifyContent: 'center',
+      minWidth: 80,
+    },
+    // dropdown_item: {
+    //   paddingVertical: 10,
+    //   paddingHorizontal: 15,
+    //   width: '100%',
+    //   alignItems: 'flex-end',
+    // },
     container_exame: {
       margin: 20,
       display: 'flex',

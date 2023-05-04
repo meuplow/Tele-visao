@@ -1,24 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Icon_person from 'react-native-vector-icons/Fontisto';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import styles from '../styles.js';
+import { userGlobal } from '../../global.js';
 /* Test examinador branch */
 
 export default function Examinador_Home({ route, navigation }) {
   const { users } = route.params;
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleLogout = () => {
+    userGlobal.email = null
+    userGlobal.perfil = null
+    userGlobal.examinador_da_semana = null
+    userGlobal.name = null
+    navigation.navigate('Login');
+  };
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   return (
     <View style={styles.container}>
-      <View style={styles.welcome}>
+    <View style={styles.welcome}>
         <div>
-          {/* <Text style={[styles.title, {marginLeft: -20}]}>Bem-vindo(a)</Text> */}
           <Text style={styles.title}>Bem-vindo(a)</Text>
-          <br/>
+          <br />
           <Text style={styles.subtitle}>{users[0]['dados']['nome']}</Text>
         </div>
-          <Icon_person name="person" size={40} color='#363636' />
+        <View>
+          <Pressable style={{ backgroundColor: "#F7EFEE", padding: 10,
+              borderRadius: 4, }} onPress={handleLogout}>
+                <MaterialIcons name="logout" size={20} color="#363636" />
+          </Pressable>
+        </View>
       </View>
       <Text style={styles.menu}>Menu</Text>
       <View style={styles.menu_button_container}>
