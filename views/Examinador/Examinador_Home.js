@@ -6,14 +6,17 @@ import Icon_person from 'react-native-vector-icons/Fontisto';
 import styles from '../styles.js';
 /* Test examinador branch */
 
-export default function Examinador_Home({navigation}) {
+export default function Examinador_Home({ route, navigation }) {
+  const { users } = route.params;
+
   return (
     <View style={styles.container}>
       <View style={styles.welcome}>
         <div>
-          <Text style={styles.title}>Bem-vinda</Text>
+          {/* <Text style={[styles.title, {marginLeft: -20}]}>Bem-vindo(a)</Text> */}
+          <Text style={styles.title}>Bem-vindo(a)</Text>
           <br/>
-          <Text style={styles.subtitle}>Maria</Text>
+          <Text style={styles.subtitle}>{users[0]['dados']['nome']}</Text>
         </div>
           <Icon_person name="person" size={40} color='#363636' />
       </View>

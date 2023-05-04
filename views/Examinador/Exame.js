@@ -3,10 +3,11 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, View, Pressable } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Icon_person from 'react-native-vector-icons/Fontisto';
-
+import { useIsFocused } from '@react-navigation/native';
 import styles from '../styles.js';
+import { userGlobal } from '../../global.js';
 import { db, storage } from '../../src/config/firebase.js';
-import { updateDoc, doc } from 'firebase/firestore';
+import { collection, getDocs, updateDoc, doc,  query, where} from 'firebase/firestore';
 import { uploadBytes, ref } from "firebase/storage";
 import { Buffer } from "buffer";
 
@@ -16,12 +17,6 @@ class ExamInfo {
         this.description = description;
     }
 }
-
-// function descExame(exame) {
-//     addDoc(collection(db, "exames"), {
-//         descricao: exame
-//       });
-// };
 
 async function uploadImage(image, id) {
     const { uri } = image;
@@ -64,6 +59,20 @@ export default function Exame({ route, navigation }) {
 
     const { patient } = route.params;
 
+    const getUserNavigate = async () => {
+        let users = new Array();
+        let userRef = collection(db, "usuario");
+        let acceptedQuery = query(userRef, where("email", "==", userGlobal.email));
+        let userSnapshot = await getDocs(acceptedQuery);
+        userSnapshot.forEach(u => {
+        users.push({'dados': u.data()});
+        });
+        
+        navigation.navigate('Examinador_Home', {
+          users: users
+      })
+    }
+
     const pickImage = async () => {
       let result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -89,6 +98,7 @@ export default function Exame({ route, navigation }) {
     const uploadExam = async (patient, examInfo) => {
         addInfo(patient, new ExamInfo(image, description));
         simpleAlert();
+        getUserNavigate();
     }
 
     return (

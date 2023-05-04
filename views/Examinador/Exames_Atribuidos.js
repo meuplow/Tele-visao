@@ -4,7 +4,7 @@ import { Text, View, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../styles.js';
 import { db } from '../../src/config/firebase.js';
-import { collection, getDocs, updateDoc, doc, query } from 'firebase/firestore';
+import { collection, getDocs, updateDoc, doc, query, where } from 'firebase/firestore';
 
 
 

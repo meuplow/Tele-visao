@@ -1,22 +1,9 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// import * as firebase from "firebase";
-import { getStorage } from "firebase/storage";
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
-    // Follow this pattern to import other Firebase services
-    // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-analytics.js";
-    // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-app-check.js";
-    // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-auth.js";
-    // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-functions.js";
-    // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-firestore.js";
-    // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-storage.js";
-    // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-performance.js";
-    // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-remote-config.js";
-    // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-messaging.js";
-    // import {} from "https://www.gstatic.com/firebasejs/${FIREBASE_VERSION}/firebase-database.js";
-    
-    // TODO: Replace the following with your app's Firebase project configuration
+import firebase, { initializeApp } from "firebase/app"
+import "firebase/firestore";
+import { getAuth} from "firebase/auth"
+import { getFirestore } from '@firebase/firestore'
+import { getStorage } from "@firebase/storage"
 
 const firebaseConfig = {
   apiKey: "AIzaSyBEYRR_3d9n2WQSevS5N4qd4Y1iVQI2ivQ",
@@ -31,10 +18,36 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
+export const auth = getAuth(app);
 
 export const db = getFirestore(app);
 
 export const storage = getStorage(app, 'gs://tele-visao-224f7.appspot.com/');
+
+// firebase.auth().signInWithEmailAndPassword(email, password)
+//   .then((userCredential) => {
+//     // Signed in
+//     var user = userCredential.user;
+//     // ...
+//   })
+//   .catch((error) => {
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//   });
+
+
+export default app
+
+// signInWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//     // Signed in 
+//     const user = userCredential.user;
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//   });
 /*
 const db = firebaseApp.firestone();
 export {db};*/

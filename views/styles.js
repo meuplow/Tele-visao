@@ -18,6 +18,15 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       color: '#363636'
     },
+    link:{
+      fontWeight: 'bold',
+    },
+    containerCentralize:{
+      display: 'flex',
+      textAlign: 'center',
+      maxWidth: '100%',
+      alignItems: 'center',
+    },
     welcome: {
       display: 'flex',
       flexDirection: 'row',
@@ -29,7 +38,9 @@ const styles = StyleSheet.create({
       fontSize: 21,
       fontFamily: 'Arial',
       fontWeight: 'bold',
-      color: '#363636'
+      color: '#363636',
+      marginBottom: 20,
+      marginTop: 20,
     },
     menu: {
       margin: 40,
@@ -68,9 +79,9 @@ const styles = StyleSheet.create({
     },
     field_name: {
       textAlign: 'center',
-      fontSize: 20,
+      fontSize: 16,
       fontFamily: 'Arial',
-      fontWeight: 'bold',
+      fontWeight: 'normal',
       color: '#363636'
     },
     field_name_left: {

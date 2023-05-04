@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from './views/Home/Home';
-import Login from './views/Home/Login';
+import Login from './views/Login/Login';
 import Cadastro_Perfil from './views/Home/Cadastro_Perfil';
 
 import Oftalmologista_Home from './views/Oftalmologista/Oftalmologista_Home';
@@ -14,7 +14,9 @@ import Laudos_Feitos from './views/Oftalmologista/Laudos_Feitos';
 
 
 import Admin_Home from './views/Admin/Admin_Home';
-import Aceita_Usuarios from './views/Admin/Aceita_Usuarios';
+import Cadastra_Local from './views/Admin/Cadastra_Local';
+import Autoriza_Usuarios from './views/Admin/Autoriza_Usuarios';
+import Verifica_Usuarios from './views/Admin/Verifica_Usuarios';
 import Seleciona_Examinador_Da_Semana from './views/Admin/Seleciona_Examinador_Da_Semana';
 
 import Examinador_Home from './views/Examinador/Examinador_Home';
@@ -40,7 +42,18 @@ export default function App() {
 
   return (
     <NavigationContainer theme={navTheme}>
-      <Stack.Navigator>
+      <Stack.Navigator>      
+        
+      <Stack.Screen name='Login' component={Login} />
+        <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
+        <Stack.Screen name='Admin_Home' component={Admin_Home} />
+        <Stack.Screen name='Cadastra_Local' component={Cadastra_Local} />
+        <Stack.Screen name='Autoriza_Usuarios' component={Autoriza_Usuarios} />
+        <Stack.Screen name='Verifica_Usuarios' component={Verifica_Usuarios} />
+        <Stack.Screen name='Seleciona_Examinador_Da_Semana' component={Seleciona_Examinador_Da_Semana} />
+
+        <Stack.Screen name='Home' component={Home} />
+
         <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
         <Stack.Screen name='Solicitacao_Exame' component={Solicitacao_Exame} />
         <Stack.Screen name='Ver_Laudos' component={Ver_Laudos} />
@@ -51,21 +64,13 @@ export default function App() {
         <Stack.Screen name='Exames_Pendentes_Oftalmologista' component={Exames_Pendentes_Oftalmologista} />
         <Stack.Screen name='Laudo' component={Laudo} />
         <Stack.Screen name='Laudos_Feitos' component={Laudos_Feitos} />
+        <Stack.Screen name='Ver_Laudo' component={Ver_Laudo} />
 
         <Stack.Screen name='Exame' component={Exame} />
         <Stack.Screen name='Atribuir_Coleta' component={Atribuir_Coleta} options={{title:'Examinador'}}/>
         <Stack.Screen name='Exames_Atribuidos' component={Exames_Atribuidos} options={{title:'Examinador'}}/>
         <Stack.Screen name='Coletas_Em_Andamento' component={Coletas_Em_Andamento} options={{title:'Examinador'}}/>
         <Stack.Screen name='Coletas_Feitas' component={Coletas_Feitas} options={{title:'Examinador'}}/>
-
-        <Stack.Screen name='Admin_Home' component={Admin_Home} />
-        <Stack.Screen name='Aceita_Usuarios' component={Aceita_Usuarios} />
-        <Stack.Screen name='Seleciona_Examinador_Da_Semana' component={Seleciona_Examinador_Da_Semana} />
-
-        <Stack.Screen name='Home' component={Home} />
-        <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
-        <Stack.Screen name='Login' component={Login} />
-
       </Stack.Navigator>
     </NavigationContainer>  
   );
