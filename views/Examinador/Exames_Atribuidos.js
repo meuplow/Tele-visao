@@ -80,7 +80,7 @@ export default function Ver_Laudos({navigation}) {
                                 <Icon name="hospital" size={25}/>
                                 <Text style={styles.list_subtitle}>{patient['dados']["local"]}</Text>
                             </View>
-                            <Text style={styles.list_title}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                            <Text style={styles.patientText}>Paciente: {patient['dados']["nome_completo"]}</Text>
                         </Pressable>
                 )
             })

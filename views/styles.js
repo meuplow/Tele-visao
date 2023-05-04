@@ -74,6 +74,15 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       marginTop: 20,
     },
+    patientText: {
+      textAlign: 'left',
+      fontSize: 16,
+      fontFamily: 'Arial',
+      fontWeight: 'bold',
+      color: '#363636',
+      marginBottom: 10,
+      marginTop: 10,
+    },
     menu: {
       margin: 40,
       alignContent: 'center',

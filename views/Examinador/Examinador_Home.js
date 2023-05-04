@@ -34,6 +34,8 @@ export default function Examinador_Home({ route, navigation }) {
           </Pressable>
         </View>
       </View>
+      
+      {userGlobal.examinador_da_semana && <Text style={{ marginBottom: -20, fontWeight: 'bold', backgroundColor: "#F7EFEE", borderRadius: 10, width: 180, padding: 10}}>Examinador da semana</Text>}
       <Text style={styles.menu}>Menu</Text>
       <View style={styles.menu_button_container}>
       <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Coletas_Em_Andamento')}>

@@ -64,7 +64,7 @@ export default function Coletas_Feitas({navigation}) {
                                 <Icon style={styles.camera_icon} name="hospital" color='#363636' size={20}/>
                                 <Text style={styles.subtitle}>{patient['dados']["local"]}</Text>
                             </View>
-                            <Text style={styles.title}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                            <Text style={styles.patientText}>Paciente: {patient['dados']["nome_completo"]}</Text>
                         </Pressable>
                 )
             })

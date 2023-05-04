@@ -19,7 +19,7 @@ export default function Ver_Laudos({ navigation }) {
                             <Icon name="hospital" size={25} />
                             <Text style={styles.list_subtitle}>{item[0]}</Text>
                         </View>
-                        <Text style={styles.list_title}>Paciente: {item[1]}</Text>
+                        <Text style={styles.patientText}>Paciente: {item[1]}</Text>
                     </Pressable>
                 );
             })}
