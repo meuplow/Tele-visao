@@ -12,8 +12,8 @@ function Ver_Laudos({ navigation }) {
 
     useLayoutEffect(() => {
         navigation.setOptions({ title: 'Visualização de laudos' });
-      }, [navigation]);
-    
+    }, [navigation]);
+
 
     return (
         <View style={styles.container}>

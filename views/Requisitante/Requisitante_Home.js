@@ -31,9 +31,11 @@ function Requisitante_Home({ route, navigation }) {
           <Text style={styles.subtitle}>{users[0]['dados']['nome']}</Text>
         </div>
         <View>
-          <Pressable style={{ backgroundColor: "#F7EFEE", padding: 10,
-              borderRadius: 4, }} onPress={handleLogout}>
-                <MaterialIcons name="logout" size={20} color="#363636" />
+          <Pressable style={{
+            backgroundColor: "#F7EFEE", padding: 10,
+            borderRadius: 4,
+          }} onPress={handleLogout}>
+            <MaterialIcons name="logout" size={20} color="#363636" />
           </Pressable>
         </View>
       </View>
@@ -52,10 +54,10 @@ function Requisitante_Home({ route, navigation }) {
               <Text style={styles.text_menu_button}>Ver laudos</Text>
             </View>
           </Pressable>
-          </View>
-          <StatusBar style="auto" />
+        </View>
+        <StatusBar style="auto" />
       </View>
-  </View>
+    </View>
   );
 }
 export default Requisitante_Home;
