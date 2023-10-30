@@ -4,6 +4,7 @@ import { Text, TextInput, View, Pressable, ActivityIndicatorComponent } from 're
 import { Picker } from '@react-native-picker/picker';
 import DateField from 'react-native-datefield';
 import styles from '../styles.js';
+import { useLayoutEffect } from 'react';
 
 import { db } from '../../src/config/firebase.js';
 import { addDoc, collection } from 'firebase/firestore';
@@ -38,7 +39,7 @@ async function addExamInfo(examInfo) {
     return;
 }
 
-export default function Cadastro_Perfil() {
+ function Cadastro_Perfil({ navigation }) {
     const [nome_completo, set_nome_completo] = useState('');
     const [sexo, set_sexo] = useState('M');
     const [data_de_nascimento, set_data_de_nascimento] = useState('');
@@ -64,23 +65,20 @@ export default function Cadastro_Perfil() {
 
     var options = ["Santa Casa", "Moinhos de Vento", "Mãe de Deus"];
 
+    useLayoutEffect(() => {
+        navigation.setOptions({ title: 'Solicitar exame' });
+      }, [navigation]);
+    
+
     return (
         <View style={styles.containerCentralize}>
-            <Text style={styles.title}>Solicitar exame</Text>
+        <View style={{ height: 30 }}/>
             <Text style={styles.field_name}>Nome completo</Text>
             <TextInput
                 onChangeText={new_nome_completo => set_nome_completo(new_nome_completo)}
                 defaultValue={nome_completo}
                 style={styles.field}
                 placeholder="Digite aqui o nome completo" />
-            <Text style={styles.field_name}>Sexo</Text>
-            <Picker
-                style={styles.picker}
-                onValueChange={new_sexo => set_sexo(new_sexo)}
-                defaultValue={sexo}>
-                <Picker.Item style={styles.text} label='M' value='M' />
-                <Picker.Item style={styles.text} label='F' value='F' />
-            </Picker>
             <Text style={styles.field_name}>Data de nascimento</Text>
             <DateField
                 labelDate="Dia"
@@ -99,11 +97,31 @@ export default function Cadastro_Perfil() {
                 }}
                 onSubmit={new_data_de_nascimento => set_data_de_nascimento(new_data_de_nascimento)}
             />
+        <View style={{ flexDirection: 'row' }}>
+            {/* Campo "Sexo" */}
+            <View style={{ flex: 1 }}>
+            <Text style={styles.field_name}>Sexo</Text>
+            <Picker
+                style={styles.smallpicker}
+                onValueChange={new_sexo => set_sexo(new_sexo)}
+                defaultValue={sexo}
+            >
+                <Picker.Item style={styles.text} label='M' value='M' />
+                <Picker.Item style={styles.text} label='F' value='F' />
+            </Picker>
+            </View>
+
+            {/* Espaço entre os campos */}
+            <View style={{ width: 10 }} /> {/* Espaço de 10 de largura (ajuste conforme desejado) */}
+
+            {/* Campo "Raça" */}
+            <View style={{ flex: 1 }}>
             <Text style={styles.field_name}>Raça</Text>
             <Picker
                 onValueChange={new_raca => set_raca(new_raca)}
                 defaultValue={raca}
-                style={styles.picker}>
+                style={styles.smallpicker}
+            >
                 <Picker.Item label='Branco' value='Branco' />
                 <Picker.Item label='Negro' value='Negro' />
                 <Picker.Item label='Pardo' value='Pardo' />
@@ -111,7 +129,9 @@ export default function Cadastro_Perfil() {
                 <Picker.Item label='Indígena' value='Indígena' />
                 <Picker.Item label='Outro' value='Outro' />
             </Picker>
-            <Text style={styles.field_name}>local</Text>
+            </View>
+        </View>
+            <Text style={styles.field_name}>Local</Text>
             <Picker
                 onValueChange={new_local => set_local(new_local)}
                 defaultValue={local}
@@ -132,26 +152,29 @@ export default function Cadastro_Perfil() {
                 defaultValue={leito_atual}
                 style={styles.field}
                 placeholder="Digite aqui o número" />
-            <Text style={styles.field_name}>Histórico do patiente</Text>
+            <Text style={styles.field_name}>Histórico do paciente</Text>
             <TextInput
                 onChangeText={new_historico_paciente => set_historico_paciente(new_historico_paciente)}
                 defaultValue={historico_paciente}
                 multiline={true}
                 style={styles.big_field}
-                placeholder="Digite aqui o histórico do patiente" />
+                placeholder="Digite aqui o histórico do paciente" />
             <Text style={styles.field_name}>Informações da solicitação</Text>
             <TextInput
                 onChangeText={new_infos_solicitacao => set_infos_solicitacao(new_infos_solicitacao)}
                 defaultValue={infos_solicitacao}
                 multiline={true}
                 style={styles.big_field}
-                placeholder="Digite aqui as informações da solicitação do patiente" />
+                placeholder="Digite aqui as informações da solicitação do paciente" />
             <Pressable
                 onPress={() => uploadExam(new ExamInfo(nome_completo, sexo, data_de_nascimento, raca, local, matricula, leito_atual, historico_paciente, infos_solicitacao))}
                 style={styles.button}>
                 <Text style={styles.text}>Cadastrar</Text>
             </Pressable>
             <StatusBar style="auto" />
+            <View style={{ height: 50 }} />
         </View>
     );
 }
+
+export default Cadastro_Perfil;

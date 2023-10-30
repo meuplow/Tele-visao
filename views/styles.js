@@ -59,6 +59,10 @@ const styles = StyleSheet.create({
       maxWidth: '100%',
       alignItems: 'center',
     },
+    buttonContent: {
+      alignItems: 'center',
+      margin: 50, // Ajuste este valor para o espaçamento desejado entre o ícone e o texto
+    },
     welcome: {
       display: 'flex',
       flexDirection: 'row',
@@ -90,7 +94,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontSize: 21,
       color: '#363636',
-      fontWeight: 'normal',
+      fontWeight: 'bold',
     },
     subtitle: {
       marginBottom: 16,
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontSize: 16,
       fontFamily: 'Arial',
-      fontWeight: 'normal',
+      fontWeight: 'bold',
       color: '#363636'
     },
     field_name_left: {
@@ -136,8 +140,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#F2F2F5',
       borderRadius: 5,
       height: 40,
-      width: 250,
-      marginBottom: 20,
+      width: 255,
+      marginBottom: 10,
       marginTop: 10,
       paddingVertical: 20,
       paddingHorizontal: 20
@@ -152,11 +156,22 @@ const styles = StyleSheet.create({
       paddingVertical: 20,
       paddingHorizontal: 20
     },
+    smallpicker: {
+      backgroundColor: '#F2F2F5',
+      border: '#F2F2F5',
+      borderRadius: 5,
+      width: 117,
+      marginBottom: 10,
+      marginTop: 10,
+      paddingVertical: 20,
+      paddingHorizontal: 20
+    },
     picker: {
       backgroundColor: '#F2F2F5',
+      border: '#F2F2F5',
       borderRadius: 5,
-      width: 250,
-      marginBottom: 20,
+      width: 255,
+      marginBottom: 10,
       marginTop: 10,
       paddingVertical: 20,
       paddingHorizontal: 20

@@ -5,8 +5,9 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles.js';
 import { userGlobal } from '../../global.js';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { useLayoutEffect } from 'react';
 
-export default function Requisitante_Home({ route, navigation }) {
+function Requisitante_Home({ route, navigation }) {
   const { users } = route.params;
 
   const handleLogout = () => {
@@ -18,13 +19,15 @@ export default function Requisitante_Home({ route, navigation }) {
     navigation.navigate('Login');
   };
 
+  useLayoutEffect(() => {
+    navigation.setOptions({ title: 'Requisitante Home' });
+  }, [navigation]);
+
 
   return (
     <View style={styles.container}>
       <View style={styles.welcome}>
         <div>
-          <Text style={styles.title}>Bem-vindo(a)</Text>
-          <br />
           <Text style={styles.subtitle}>{users[0]['dados']['nome']}</Text>
         </div>
         <View>
@@ -36,16 +39,23 @@ export default function Requisitante_Home({ route, navigation }) {
       </View>
       <View style={styles.containerCentralize}>
         <Text style={styles.menu}>Menu</Text>
-         <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Solicitacao_Exame')}>
-        <Icon name="clipboard-text-multiple" size={35} color='#5CE1CD' />
-        <Text style={styles.text_menu_button}>Solicitar exame</Text>
-      </Pressable>
-      <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Ver_Laudos')}>
-        <Icon name="clipboard-text-multiple" size={35} color='#F0D05F' />
-        <Text style={styles.text_menu_button}>Ver laudos</Text>
-      </Pressable>
-      <StatusBar style="auto" />
+        <View style={{ flexDirection: 'row' }}>
+          <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Solicitacao_Exame')}>
+            <View style={styles.buttonContent}>
+              <Icon name="clipboard-text-multiple" size={35} color='#5CE1CD' />
+              <Text style={styles.text_menu_button}>Solicitar exame</Text>
+            </View>
+          </Pressable>
+          <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Ver_Laudos')}>
+            <View style={styles.buttonContent}>
+              <Icon name="clipboard-text-multiple" size={35} color='#F0D05F' />
+              <Text style={styles.text_menu_button}>Ver laudos</Text>
+            </View>
+          </Pressable>
+          </View>
+          <StatusBar style="auto" />
       </View>
-    </View>
+  </View>
   );
 }
+export default Requisitante_Home;
