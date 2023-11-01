@@ -6,7 +6,15 @@ const styles = StyleSheet.create({
       margin: 20,
       display: 'flex',
       backgroundColor: '#fff',
-      color: '#363636'
+      color: '#363636',
+    },
+    containerHome: {
+      display: 'flex',
+      backgroundColor: '#fff',
+      color: '#363636',
+      textAlign: 'center',
+      maxWidth: '100%',
+      alignItems: 'center',
     },
     dropdown: {
       position: 'absolute',
@@ -74,6 +82,23 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       marginTop: 20,
     },
+    titleHome: {
+      textAlign: 'center',
+      fontSize: 22,
+      fontFamily: 'Arial',
+      fontWeight: 'bold',
+      color: '#363636',
+      marginBottom: 20,
+      marginTop: 20,
+    },
+    titleCadastro: {
+      textAlign: 'left',
+      fontSize: 22,
+      fontWeight: 'bold',
+      color: '#363636',
+      marginBottom: 20,
+      marginTop: 40,
+    },
     patientText: {
       textAlign: 'left',
       fontSize: 16,
@@ -132,6 +157,14 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontWeight: 'bold'
     },
+    field_name_leftCadastro: {
+      display: 'flex',
+      textAlign: 'left',
+      //fontFamily: 'Roboto',
+      fontWeight: 'bold',
+      fontSize: 16,
+      paddingLeft: 5,
+    },
     field: {
       backgroundColor: '#F2F2F5',
       borderRadius: 5,
@@ -141,6 +174,18 @@ const styles = StyleSheet.create({
       marginTop: 10,
       paddingVertical: 20,
       paddingHorizontal: 20
+    },
+    fieldCadastro: {
+      backgroundColor: '#F2F2F5',
+      height: 56,
+      width: 338,
+      marginBottom: 20,
+      marginTop: 8,
+      paddingVertical: 20,
+      paddingHorizontal: 20,
+      borderRadius: 16,
+      fontSize: 16,
+      marginLeft: 6,
     },
     big_field: {
       backgroundColor: '#F2F2F5',
@@ -161,12 +206,44 @@ const styles = StyleSheet.create({
       paddingVertical: 20,
       paddingHorizontal: 20
     },
+    pickerCadastro: {
+      backgroundColor: '#F2F2F5',
+      height: 56,
+      width: 338,
+      marginBottom: 20,
+      marginTop: 10,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 16,
+      borderColor: '#F2F2F5',
+      fontSize: 16,
+    },
     button: {
       marginTop: 30,
       paddingVertical: 10,
-      borderRadius: 5,
+      borderRadius: 16,
       backgroundColor: '#6A79A8',
       width: 200
+    },
+    buttonHome: {
+      marginTop: 30,
+      paddingVertical: 10,
+      borderRadius: 16,
+      backgroundColor: '#6A79A8',
+      height: 57,
+      width: 335,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    buttonCadastro: {
+      marginTop: 30,
+      paddingVertical: 10,
+      borderRadius: 16,
+      backgroundColor: '#6A79A8',
+      height: 57,
+      width: 335,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     button_exam: {
       marginTop: 0,
@@ -231,6 +308,18 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       color: '#fff',
       fontSize: 22,
+      fontWeight: 'bold'
+    },
+    textHome: {
+      textAlign: 'center',
+      color: '#fff',
+      fontSize: 18,
+      fontWeight: 'bold'
+    },
+    textCadastro: {
+      textAlign: 'center',
+      color: '#fff',
+      fontSize: 18,
       fontWeight: 'bold'
     },
     text_menu_button: {
