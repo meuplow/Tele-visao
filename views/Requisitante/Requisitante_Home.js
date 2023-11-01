@@ -5,9 +5,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles.js';
 import { userGlobal } from '../../global.js';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { useLayoutEffect } from 'react';
 
-function Requisitante_Home({ route, navigation }) {
+export default function Requisitante_Home({ route, navigation }) {
   const { users } = route.params;
 
   const handleLogout = () => {
@@ -18,11 +17,6 @@ function Requisitante_Home({ route, navigation }) {
     userGlobal.isLoggedIn = false
     navigation.navigate('Login');
   };
-
-  useLayoutEffect(() => {
-    navigation.setOptions({ title: 'Requisitante Home' });
-  }, [navigation]);
-
 
   return (
     <View style={styles.container}>
@@ -60,4 +54,3 @@ function Requisitante_Home({ route, navigation }) {
     </View>
   );
 }
-export default Requisitante_Home;

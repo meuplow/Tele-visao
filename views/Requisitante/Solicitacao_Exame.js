@@ -4,7 +4,6 @@ import { Text, TextInput, View, Pressable, ActivityIndicatorComponent } from 're
 import { Picker } from '@react-native-picker/picker';
 import DateField from 'react-native-datefield';
 import styles from '../styles.js';
-import { useLayoutEffect } from 'react';
 
 import { db } from '../../src/config/firebase.js';
 import { addDoc, collection } from 'firebase/firestore';
@@ -39,7 +38,7 @@ async function addExamInfo(examInfo) {
     return;
 }
 
-function Cadastro_Perfil({ navigation }) {
+export default function Cadastro_Perfil({}) {
     const [nome_completo, set_nome_completo] = useState('');
     const [sexo, set_sexo] = useState('M');
     const [data_de_nascimento, set_data_de_nascimento] = useState('');
@@ -65,14 +64,10 @@ function Cadastro_Perfil({ navigation }) {
 
     var options = ["Santa Casa", "Moinhos de Vento", "Mãe de Deus"];
 
-    useLayoutEffect(() => {
-        navigation.setOptions({ title: 'Solicitar exame' });
-    }, [navigation]);
-
-
     return (
-        <View style={styles.containerCentralize}>
-            <View style={{ height: 30 }} />
+        <View style={styles.container}>
+            <View style={{ height: 50 }} />
+            <Text style={styles.title}>Solicitar Exame</Text>
             <Text style={styles.field_name}>Nome completo</Text>
             <TextInput
                 onChangeText={new_nome_completo => set_nome_completo(new_nome_completo)}
@@ -89,8 +84,8 @@ function Cadastro_Perfil({ navigation }) {
                 containerStyle={{ marginVertical: 20 }}
                 styleInput={{
                     fontSize: 15,
-                    width: 244 / 3,
-                    height: 50,
+                    width: 305 / 3,
+                    height: 55,
                     backgroundColor: '#F2F2F5',
                     marginLeft: 2,
                     marginRight: 2
@@ -161,15 +156,15 @@ function Cadastro_Perfil({ navigation }) {
                 multiline={true}
                 style={styles.big_field}
                 placeholder="Digite aqui as informações da solicitação do paciente" />
+            <View style={styles.containerCentralize}>
             <Pressable
                 onPress={() => uploadExam(new ExamInfo(nome_completo, sexo, data_de_nascimento, raca, local, matricula, leito_atual, historico_paciente, infos_solicitacao))}
                 style={styles.button}>
-                <Text style={styles.text}>Cadastrar</Text>
+                <Text style={styles.text}>Solicitar</Text>
             </Pressable>
             <StatusBar style="auto" />
             <View style={{ height: 50 }} />
         </View>
+        </View>
     );
 }
-
-export default Cadastro_Perfil;

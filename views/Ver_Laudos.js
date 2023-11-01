@@ -3,20 +3,16 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, Pressable, Div } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from './styles.js';
-import { useLayoutEffect } from 'react';
 
-function Ver_Laudos({ navigation }) {
+export default function Ver_Laudos({ navigation }) {
     var laudos = [['Santa Casa', 'Carolina'],
     ['Moinhos de Vento', 'Carlos'],
     ['Mãe de Deus', 'José']];
 
-    useLayoutEffect(() => {
-        navigation.setOptions({ title: 'Visualização de laudos' });
-    }, [navigation]);
-
-
     return (
         <View style={styles.container}>
+            <View style={{ height: 50 }} />
+            <Text style={styles.title}>Verificação de Laudos</Text>
             {laudos.map((item) => {
                 return (
                     <Pressable style={styles.list_button} onPress={() => alert("Laudo")}>
@@ -32,5 +28,3 @@ function Ver_Laudos({ navigation }) {
         </View>
     );
 }
-
-export default Ver_Laudos;
