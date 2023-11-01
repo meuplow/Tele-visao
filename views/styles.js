@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
       fontFamily: 'Arial',
       fontWeight: 'bold',
       color: '#363636',
-      marginBottom: 20,
+      marginBottom: 40,
       marginTop: 20,
     },
     titleCadastro: {
@@ -226,14 +226,16 @@ const styles = StyleSheet.create({
       width: 200
     },
     buttonHome: {
-      marginTop: 30,
       paddingVertical: 10,
+      marginBottom: 30,
       borderRadius: 16,
       backgroundColor: '#6A79A8',
       height: 57,
       width: 335,
       alignItems: 'center',
       justifyContent: 'center',
+      display: 'flex',
+      flexDirection: 'column',
     },
     buttonCadastro: {
       marginTop: 30,
@@ -329,6 +331,20 @@ const styles = StyleSheet.create({
       fontSize: 13,
       width: 100,
       fontWeight: 'bold'
+    },
+    viewImageLogo: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom:20,
+      marginTop:100,
+    },
+    logo: {
+      alignItems: 'center',
+      width: 180,
+      height: 180,
+      position: 'relative',
+      marginBottom:20,
     }
   }
 );
