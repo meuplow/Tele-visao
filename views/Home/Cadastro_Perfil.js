@@ -68,6 +68,10 @@ export default function Cadastro_Perfil({navigation}) {
 
     } catch (error) {
       console.log(error.message);
+      console.log(error.code);
+      if(error.code == 'auth/email-already-in-use'){
+        setError('Email já foi cadastrado');
+      }
     }
   };
 
