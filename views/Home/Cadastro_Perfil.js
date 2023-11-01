@@ -28,6 +28,11 @@ export default function Cadastro_Perfil({navigation}) {
         setError('Não é permitido registrar com esse e-mail');
         return;
       }
+
+      if (registerPassword.length < 6) {
+        setError('Senha muito curta');
+        return;
+      }
   
       const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
       console.log(user);
@@ -74,7 +79,7 @@ export default function Cadastro_Perfil({navigation}) {
       <Text style={styles.field_name}>E-mail</Text>
       <TextInput style={styles.field} placeholder="Digite aqui o seu e-mail" onChangeText={setRegisterEmail} />
       <Text style={styles.field_name}>Senha</Text>
-      <TextInput secureTextEntry={true} style={styles.field} placeholder="Digite sua senha" onChangeText={setRegisterPassword} />
+      <TextInput secureTextEntry={true} style={styles.field} placeholder="Insira uma senha (mínimo 6 caracteres)" onChangeText={setRegisterPassword} />
       <Text style={styles.field_name}>Hospital/Clínica associado</Text>
       <Picker style={styles.picker} selectedValue={selectedLocal} onValueChange={(itemValue) => setSelectedLocal(itemValue)}>
         {local_options.map((item, index) => {
@@ -87,10 +92,10 @@ export default function Cadastro_Perfil({navigation}) {
           return (<Picker.Item label={item} value={item} key={index} />);
         })}
       </Picker>
+      {error ? <Text style={styles.error}>{error}</Text> : null}
       <Pressable style={styles.button} onPress={register}>
         <Text style={styles.text}>Cadastrar</Text>
       </Pressable>
-      {error ? <Text style={styles.error}>{error}</Text> : null}
       <StatusBar style="auto" />
     </View>
   );

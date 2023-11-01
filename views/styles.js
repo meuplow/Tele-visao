@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       color: '#363636'
     },
+    error: {
+      color: '#e80532',
+      fontSize: 18,    
+    },
     dropdown: {
       position: 'absolute',
       backgroundColor: '#F7EFEE',
