@@ -100,8 +100,8 @@ export default function Cadastro_Perfil({}) {
                         onValueChange={new_sexo => set_sexo(new_sexo)}
                         defaultValue={sexo}
                     >
-                        <Picker.Item style={styles.text} label='M' value='M' />
-                        <Picker.Item style={styles.text} label='F' value='F' />
+                        <Picker.Item style={styles.text} label='Masculino' value='Masculino' />
+                        <Picker.Item style={styles.text} label='Feminino' value='Feminino' />
                     </Picker>
                 </View>
                 <View style={{ width: 10 }} />
