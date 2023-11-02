@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
       maxWidth: '100%',
       alignItems: 'center',
     },
+    error: {
+      color: '#e80532',
+      fontSize: 18,    
+    },
     dropdown: {
       position: 'absolute',
       backgroundColor: '#F7EFEE',
