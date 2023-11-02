@@ -60,11 +60,11 @@ export default function App() {
 
        <Stack.Screen name='Examinador_Home' component={Examinador_Home} options={{ title: 'Examinador' }} />
        <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} options={{ title: 'Examinador' }} />
-       <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
-       <Stack.Screen name='Exames_Pendentes_Oftalmologista' component={Exames_Pendentes_Oftalmologista} />
-       <Stack.Screen name='Laudo' component={Laudo} />
-       <Stack.Screen name='Laudos_Feitos' component={Laudos_Feitos} />
-       <Stack.Screen name='Ver_Laudo' component={Ver_Laudo} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true, headerLeft: null}} name='Oftalmologista_Home' component={Oftalmologista_Home} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Exames_Pendentes_Oftalmologista' component={Exames_Pendentes_Oftalmologista} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Laudo' component={Laudo} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Laudos_Feitos' component={Laudos_Feitos} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Ver_Laudo' component={Ver_Laudo} />
 
        <Stack.Screen name='Exame' component={Exame} />
        <Stack.Screen name='Atribuir_Coleta' component={Atribuir_Coleta} options={{ title: 'Examinador' }} />
