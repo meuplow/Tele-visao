@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     error: {
       color: '#e80532',
       fontSize: 18,    
+      textAlign: 'center'
     },
     dropdown: {
       position: 'absolute',
@@ -75,11 +76,21 @@ const styles = StyleSheet.create({
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      margin: 10
+      margin: 10,
+      marginTop: 40
     },
     title: {
       textAlign: 'left',
       fontSize: 21,
+      fontFamily: 'Arial',
+      fontWeight: 'bold',
+      color: '#363636',
+      marginBottom: 20,
+      marginTop: 20,
+    },
+    titleCentralized: {
+      textAlign: 'center',
+      fontSize: 25,
       fontFamily: 'Arial',
       fontWeight: 'bold',
       color: '#363636',
@@ -141,7 +152,9 @@ const styles = StyleSheet.create({
       fontSize: 15
     },
     list_icon: {
-      padding: 10
+      marginTop: 5,
+      marginRight: 10,
+      
     },
     camera_icon: {
       marginTop: -5,
@@ -153,6 +166,39 @@ const styles = StyleSheet.create({
       fontFamily: 'Arial',
       fontWeight: 'normal',
       color: '#363636'
+    },
+    field_name_left_small: {
+      textAlign: 'left',
+      fontSize: 16,
+      fontFamily: 'Arial',
+      fontWeight: 'normal',
+      color: '#363636',
+      backgroundColor: '#F2F2F5',
+      padding: 15,
+      borderRadius: 16,
+    },
+    field_name_img: {
+      fontSize: 16,
+      fontFamily: 'Arial',
+      fontWeight: 'bold',
+      color: '#363636',
+      backgroundColor: '#F2F2F5',
+      padding: 15,
+      borderRadius: 16,
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+      cursor: 'pointer'
+    },
+    img_full: {
+      height: "100%",
+      width:"100%", 
+      resizeMode: "contain",
+      display: 'flex',
+      zIndex: 999,
+      position: 'absolute'
     },
     field_name_left: {
       display: 'flex',
@@ -195,7 +241,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#F2F2F5',
       borderRadius: 5,
       height: 150,
-      width: 250,
+      width: '100%',
       marginBottom: 20,
       marginTop: 10,
       paddingVertical: 20,
@@ -227,6 +273,7 @@ const styles = StyleSheet.create({
       paddingVertical: 10,
       borderRadius: 16,
       backgroundColor: '#6A79A8',
+      alignSelf: 'center',
       width: 200
     },
     buttonHome: {
