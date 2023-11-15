@@ -71,16 +71,21 @@ const styles = StyleSheet.create({
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      margin: 10
+      alignItems: 'space-between',
+      margin: 10,
+      width: '100%',
     },
     title: {
-      textAlign: 'left',
+      textAlign: 'center',
       fontSize: 21,
       fontFamily: 'Arial',
       fontWeight: 'bold',
       color: '#363636',
       marginBottom: 20,
       marginTop: 20,
+      textShadowColor: 'rgba(0, 0, 0, 0.1)',
+      textShadowOffset: {width: -1, height: 1},
+      textShadowRadius: 1,
     },
     titleHome: {
       textAlign: 'center',
@@ -174,6 +179,19 @@ const styles = StyleSheet.create({
       marginTop: 10,
       paddingVertical: 20,
       paddingHorizontal: 20
+    },
+    fieldLocal:{
+      display: 'flex',
+      textAlign: 'center',
+      backgroundColor: '#F2F2F5',
+      borderRadius: 5,
+      height: 40,
+      width: 250,
+      marginBottom: 20,
+      marginTop: 10,
+      paddingVertical: 20,
+      paddingHorizontal: 20,
+      alignSelf: 'center',
     },
     fieldCadastro: {
       backgroundColor: '#F2F2F5',
@@ -290,11 +308,11 @@ const styles = StyleSheet.create({
     list_button: {
       marginTop: 10,
       paddingVertical: 10,
-      borderRadius: 5,
+      borderRadius: 15,
       backgroundColor: '#F2F2F5',
       height: 100,
       maxWidth: 500,
-      marginBottom: 20,
+      marginBottom: 10,
       marginTop: 10,
       padding: 20,
       justifyContent: 'center',
@@ -345,7 +363,39 @@ const styles = StyleSheet.create({
       height: 180,
       position: 'relative',
       marginBottom:20,
-    }
+    },
+    examinadorContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 5,
+      borderRadius: 20,
+    },
+    circleExaminadorDaSemana: {
+      borderColor: 'navy',
+      borderWidth: 2,
+    },
+    circle: {
+        width: 50,
+        height: 50,
+        borderRadius: 50 / 2,
+        backgroundColor: 'black',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 10,
+    },
+    initials: {
+        color: 'white',
+        fontSize: 20,
+    },
+    name: {
+        color: 'black',
+        fontSize: 20,
+    },
+    examinadorDaSemanaText: {
+      fontSize: 12,
+      fontWeight: 'bold',
+      color: 'black',
+  },
   }
 );
 

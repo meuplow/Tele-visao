@@ -45,6 +45,19 @@ export default function Verifica_Usuarios({navigation}) {
         }
     }
 
+    function Usuario({ nome }) {
+        const iniciais = nome.split(' ').map(parte => parte[0]).join('').toUpperCase();
+    
+        return (
+            <View style={styles.examinadorContainer}>
+                <View style={styles.circle}>
+                    <Text style={styles.initials}>{iniciais}</Text>
+                </View>
+                <Text style={styles.name}>{nome}</Text>
+            </View>
+        );
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Verifique os usuários já autorizados</Text><br></br>
@@ -55,7 +68,7 @@ export default function Verifica_Usuarios({navigation}) {
                 isLoaded && usuarios.length > 0 && usuarios.map(usuario => {
                     return (
                         <Pressable key={usuario.id} style={styles.list_button} onPress={() => desautoriza_usuario(usuario)}>  
-                            <Text style={styles.title}>Usuario: {usuario['dados']["nome"]}</Text>
+                            <Usuario nome={usuario['dados']["nome"]} />
                         </Pressable>
                 )
             })

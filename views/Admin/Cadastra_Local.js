@@ -40,13 +40,14 @@ export default function Cadastra_Local() {
     }
 
     return(
-        <View style={styles.container}>
+        <View style={styles.containerCentralize}>
             <Text style={styles.title}>Cadastro de Novo Local</Text>
+            <View style={styles.separator} />
             <Text style={styles.field_name}>Nome do Local</Text>
             <TextInput 
                 onChangeText={new_nome_local => set_nome_local(new_nome_local)}
                 defaultValue={nome_local}
-                style={styles.field}
+                style={styles.fieldLocal}
                 placeholder="Digite aqui o nome do local" />
             <Pressable
                 onPress={() => uploadLocal(new LocalInfo(nome_local, administrador))}

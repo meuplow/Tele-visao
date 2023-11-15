@@ -65,7 +65,7 @@ export default function Cadastra_Usuario() {
     }, []);
 
     return(
-        <View style={styles.container}>
+        <View style={styles.containerCentralize}>
             <Text style={styles.title}>Autorização de Novo Usuário</Text>
             <Text style={styles.field_name}>E-mail do Usuário</Text>
             <TextInput 
