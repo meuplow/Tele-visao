@@ -96,8 +96,7 @@ export default function Login({navigation}){
   }
 
   return(
-      <View style={loginStyle.containerCentralize}>
-        <View style={loginStyle.containerLogin}>
+        <View style={loginStyle.container}>
           {/* <Text>{error && <Alert variant="danger">{error}</Alert>}</Text> */}
           <Text style={loginStyle.titleLogin}>Login</Text>
           <Text style={loginStyle.textLogin}>E-mail</Text>
@@ -131,7 +130,7 @@ export default function Login({navigation}){
             required
           />
           {wrongPassword && <Text style={{color: 'red'}}>Senha incorreta.</Text>}
-          <Text style={loginStyle}>
+          <Text style={loginStyle.textLoginLink}>
             Não tem uma conta?{' '} 
             <Text style={loginStyle.link} onPress={signUp}>
               Cadastre-se
@@ -145,6 +144,5 @@ export default function Login({navigation}){
           </View>
           <StatusBar style="auto" />
         </View>
-      </View>
   );
 }
