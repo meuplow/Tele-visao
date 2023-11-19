@@ -34,6 +34,7 @@ import Ver_Laudos from './views/Ver_Laudos';
 import { userGlobal } from './global';
 
 import { DefaultTheme } from '@react-navigation/native';
+import Home from './views/Home/Home';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -44,8 +45,9 @@ export default function App() {
   return (
     <NavigationContainer theme={navTheme}>
        <Stack.Navigator>
-      {userGlobal.isLoggedIn == false && <Stack.Screen name='Login' component={Login} />}
-       <Stack.Screen name='Cadastro_Perfil' component={Cadastro_Perfil} />
+      {userGlobal.isLoggedIn == false && <Stack.Screen options={{ headerShown: false }} name='Home' component={Home} />}
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Cadastro_Perfil' component={Cadastro_Perfil} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Login' component={Login} />
        <Stack.Screen name='Admin_Home' component={Admin_Home} />
        <Stack.Screen name='Cadastra_Local' component={Cadastra_Local} />
        <Stack.Screen name='Autoriza_Usuarios' component={Autoriza_Usuarios} />
@@ -58,11 +60,11 @@ export default function App() {
 
        <Stack.Screen name='Examinador_Home' component={Examinador_Home} options={{ title: 'Examinador' }} />
        <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} options={{ title: 'Examinador' }} />
-       <Stack.Screen name='Oftalmologista_Home' component={Oftalmologista_Home} />
-       <Stack.Screen name='Exames_Pendentes_Oftalmologista' component={Exames_Pendentes_Oftalmologista} />
-       <Stack.Screen name='Laudo' component={Laudo} />
-       <Stack.Screen name='Laudos_Feitos' component={Laudos_Feitos} />
-       <Stack.Screen name='Ver_Laudo' component={Ver_Laudo} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true, headerLeft: null}} name='Oftalmologista_Home' component={Oftalmologista_Home} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Exames_Pendentes_Oftalmologista' component={Exames_Pendentes_Oftalmologista} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Laudo' component={Laudo} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Laudos_Feitos' component={Laudos_Feitos} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Ver_Laudo' component={Ver_Laudo} />
 
        <Stack.Screen name='Exame' component={Exame} />
        <Stack.Screen name='Atribuir_Coleta' component={Atribuir_Coleta} options={{ title: 'Examinador' }} />

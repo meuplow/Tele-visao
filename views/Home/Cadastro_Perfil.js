@@ -9,6 +9,9 @@ import { db } from '../../src/config/firebase.js';
 import { auth } from '../../src/config/firebase.js';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
+
+
+
 export default function Cadastro_Perfil({navigation}) {
   const local_options = ["Santa Casa","Moinhos de Vento","Mãe de Deus"];
   const profile_options = ["Examinador","Requisitante","Oftalmologista"];
@@ -26,6 +29,11 @@ export default function Cadastro_Perfil({navigation}) {
   
       if (!isAllowed) {
         setError('Não é permitido registrar com esse e-mail');
+        return;
+      }
+
+      if (registerPassword.length < 6) {
+        setError('Senha muito curta');
         return;
       }
   
@@ -63,35 +71,43 @@ export default function Cadastro_Perfil({navigation}) {
 
     } catch (error) {
       console.log(error.message);
+      console.log(error.code);
+      if(error.code == 'auth/email-already-in-use'){
+        setError('Email já foi cadastrado');
+      }
     }
   };
 
   return(
-    <View style={styles.containerCentralize}>
-      <Text style={styles.title}>Cadastro de novo perfil</Text>
-      <Text style={styles.field_name}>Nome completo</Text>
-      <TextInput style={styles.field} placeholder="Digite aqui o seu nome completo" onChangeText={setRegisterName} />
-      <Text style={styles.field_name}>E-mail</Text>
-      <TextInput style={styles.field} placeholder="Digite aqui o seu e-mail" onChangeText={setRegisterEmail} />
-      <Text style={styles.field_name}>Senha</Text>
-      <TextInput secureTextEntry={true} style={styles.field} placeholder="Digite sua senha" onChangeText={setRegisterPassword} />
-      <Text style={styles.field_name}>Hospital/Clínica associado</Text>
-      <Picker style={styles.picker} selectedValue={selectedLocal} onValueChange={(itemValue) => setSelectedLocal(itemValue)}>
+    <View style={styles.container}>
+      <Text style={styles.titleCadastro}>Cadastro de novo perfil</Text>
+      <Text style={styles.field_name_leftCadastro}>Nome completo</Text>
+      <TextInput style={styles.fieldCadastro} placeholder="Digite aqui o seu nome completo" onChangeText={setRegisterName} />
+      <Text style={styles.field_name_leftCadastro}>E-mail</Text>
+      <TextInput style={styles.fieldCadastro} placeholder="Digite aqui o seu e-mail" onChangeText={setRegisterEmail} />
+      <Text style={styles.field_name_leftCadastro}>Senha</Text>
+      <TextInput secureTextEntry={true} style={styles.fieldCadastro} placeholder="Insira uma senha (mínimo 6 caracteres)" onChangeText={setRegisterPassword} />
+      <Text style={styles.field_name_leftCadastro}>Hospital/Clínica associado</Text>
+      <Picker style={styles.pickerCadastro} selectedValue={selectedLocal} onValueChange={(itemValue) => setSelectedLocal(itemValue)}>
         {local_options.map((item, index) => {
           return (<Picker.Item label={item} value={item} key={index} />);
         })}
       </Picker>
-      <Text style={styles.field_name}>Perfil</Text>
-      <Picker style={styles.picker} selectedValue={selectedProfile} onValueChange={(itemValue) => setSelectedProfile(itemValue)}>
+      <Text style={styles.field_name_leftCadastro}>Perfil</Text>
+      <Picker style={styles.pickerCadastro} selectedValue={selectedProfile} onValueChange={(itemValue) => setSelectedProfile(itemValue)}>
         {profile_options.map((item, index) => {
           return (<Picker.Item label={item} value={item} key={index} />);
         })}
       </Picker>
-      <Pressable style={styles.button} onPress={register}>
-        <Text style={styles.text}>Cadastrar</Text>
-      </Pressable>
       {error ? <Text style={styles.error}>{error}</Text> : null}
+      <Pressable style={styles.buttonCadastro} onPress={register}>
+        <Text style={styles.textCadastro}>Cadastrar</Text>
+      </Pressable>
       <StatusBar style="auto" />
     </View>
   );
 }
+
+
+
+

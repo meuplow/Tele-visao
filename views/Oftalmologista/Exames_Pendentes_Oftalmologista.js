@@ -59,9 +59,12 @@ export default function Exames_Pendentes_Oftalmologista({ navigation }) {
 
     return (
         <View style={styles.container}>
+            <View style={{ height: 50 }} />
             <Text style={styles.title}>Exames pendentes</Text>
             {!isLoaded && <p>Carregando...</p>}
+            <Text style={styles.patientText}> 
             {isLoaded && exams.length == 0 && <p>Nenhum exame em andamento.</p>}
+            </Text>
             {
                 isLoaded && exams.length > 0 && exams.map(patient => {
                     return (
@@ -72,7 +75,10 @@ export default function Exames_Pendentes_Oftalmologista({ navigation }) {
                                     <Icon style={styles.camera_icon} name="hospital" color='#363636' size={20}/>
                                     <Text style={styles.subtitle}>{patient['dados']["local"]}</Text>
                                 </View>
+                                <View style={styles.list_button_local}>
+                                    <Icon_person style={styles.list_icon} name="person" size={20} color='#363636' />
                                     <Text style={styles.patientText}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                                </View>
                                 </View>
                         </Pressable>
                         </View>

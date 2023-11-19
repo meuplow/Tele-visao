@@ -72,7 +72,7 @@ export default function Cadastro_Perfil({}) {
             <TextInput
                 onChangeText={new_nome_completo => set_nome_completo(new_nome_completo)}
                 defaultValue={nome_completo}
-                style={styles.field}
+                style={styles.field_requisitante}
                 placeholder="Digite aqui o nome completo" />
             <Text style={styles.field_name}>Data de nascimento</Text>
             <DateField
@@ -96,7 +96,7 @@ export default function Cadastro_Perfil({}) {
                 <View style={{ flex: 1 }}>
                     <Text style={styles.field_name}>Sexo</Text>
                     <Picker
-                        style={styles.smallpicker}
+                        style={styles.smallpicker_requisitante}
                         onValueChange={new_sexo => set_sexo(new_sexo)}
                         defaultValue={sexo}
                     >
@@ -110,7 +110,7 @@ export default function Cadastro_Perfil({}) {
                     <Picker
                         onValueChange={new_raca => set_raca(new_raca)}
                         defaultValue={raca}
-                        style={styles.smallpicker}
+                        style={styles.smallpicker_requisitante}
                     >
                         <Picker.Item label='Branco' value='Branco' />
                         <Picker.Item label='Negro' value='Negro' />
@@ -125,7 +125,7 @@ export default function Cadastro_Perfil({}) {
             <Picker
                 onValueChange={new_local => set_local(new_local)}
                 defaultValue={local}
-                style={styles.picker}>
+                style={styles.picker_requisitante}>
                 {options.map((item, index) => {
                     return (<Picker.Item label={item} value={index} key={index} />);
                 })}
@@ -134,27 +134,27 @@ export default function Cadastro_Perfil({}) {
             <TextInput
                 onChangeText={new_matricula => set_matricula(new_matricula)}
                 defaultValue={matricula}
-                style={styles.field}
+                style={styles.field_requisitante}
                 placeholder="Digite aqui a matrícula" />
             <Text style={styles.field_name}>Leito atual</Text>
             <TextInput
                 onChangeText={new_leito_atual => set_leito_atual(new_leito_atual)}
                 defaultValue={leito_atual}
-                style={styles.field}
+                style={styles.field_requisitante}
                 placeholder="Digite aqui o número" />
             <Text style={styles.field_name}>Histórico do paciente</Text>
             <TextInput
                 onChangeText={new_historico_paciente => set_historico_paciente(new_historico_paciente)}
                 defaultValue={historico_paciente}
                 multiline={true}
-                style={styles.big_field}
+                style={styles.big_field_requisitante}
                 placeholder="Digite aqui o histórico do paciente" />
             <Text style={styles.field_name}>Informações da solicitação</Text>
             <TextInput
                 onChangeText={new_infos_solicitacao => set_infos_solicitacao(new_infos_solicitacao)}
                 defaultValue={infos_solicitacao}
                 multiline={true}
-                style={styles.big_field}
+                style={styles.big_field_requisitante}
                 placeholder="Digite aqui as informações da solicitação do paciente" />
             <View style={styles.containerCentralize}>
             <Pressable
