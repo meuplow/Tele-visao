@@ -1,8 +1,9 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Pressable, Div } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import { Text, View, Image } from 'react-native';
+import { getDownloadURL, ref, getStorage } from 'firebase/storage';
 import styles from './styles.js';
+
 
 export default function Ver_Laudos({ navigation }) {
     var laudos = [['Santa Casa', 'Carolina'],

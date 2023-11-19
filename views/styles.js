@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F2F5',
     borderRadius: 5,
     height: 40,
-    width: 255,
+    width: 257,
     marginBottom: 10,
     marginTop: 10,
     paddingVertical: 20,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F2F5',
     border: '#F2F2F5',
     borderRadius: 5,
-    width: 117,
+    width: 120,
     marginBottom: 10,
     marginTop: 10,
     paddingVertical: 20,
@@ -205,6 +205,13 @@ const styles = StyleSheet.create({
       fontSize: 16,
       fontFamily: 'Arial',
       fontWeight: 'normal',
+      color: '#363636'
+    },
+    field_name_requisitante: {
+      textAlign: 'center',
+      fontSize: 16,
+      fontFamily: 'Arial',
+      fontWeight: 'bold',
       color: '#363636'
     },
     field_name_left_small: {

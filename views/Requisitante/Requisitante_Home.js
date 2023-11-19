@@ -20,8 +20,10 @@ export default function Requisitante_Home({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.welcome}>
-        <div>
+    <View style={styles.welcome}>
+      <div>
+          <Text style={styles.title}>Bem-vindo(a)</Text>
+          <br />
           <Text style={styles.subtitle}>{users[0]['dados']['nome']}</Text>
         </div>
         <View>
@@ -42,7 +44,7 @@ export default function Requisitante_Home({ route, navigation }) {
               <Text style={styles.text_menu_button}>Solicitar exame</Text>
             </View>
           </Pressable>
-          <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Ver_Laudos')}>
+          <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Laudos_Feitos')}>
             <View style={styles.buttonContent}>
               <Icon name="clipboard-text-multiple" size={35} color='#F0D05F' />
               <Text style={styles.text_menu_button}>Ver laudos</Text>
