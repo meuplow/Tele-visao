@@ -54,9 +54,9 @@ export default function App() {
        <Stack.Screen name='Verifica_Usuarios' component={Verifica_Usuarios} />
        <Stack.Screen name='Seleciona_Examinador_Da_Semana' component={Seleciona_Examinador_Da_Semana} />
 
-       <Stack.Screen name='Requisitante_Home' component={Requisitante_Home} />
-       <Stack.Screen name='Solicitacao_Exame' component={Solicitacao_Exame} />
-       <Stack.Screen name='Ver_Laudos' component={Ver_Laudos} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Requisitante_Home' component={Requisitante_Home} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Solicitacao_Exame' component={Solicitacao_Exame} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Ver_Laudos' component={Ver_Laudos} />
 
        <Stack.Screen name='Examinador_Home' component={Examinador_Home} options={{ title: 'Examinador' }} />
        <Stack.Screen name='Exames_Pendentes' component={Exames_Pendentes} options={{ title: 'Examinador' }} />
