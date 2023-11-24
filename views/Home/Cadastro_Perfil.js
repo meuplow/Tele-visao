@@ -31,6 +31,11 @@ export default function Cadastro_Perfil({navigation}) {
         setError('Não é permitido registrar com esse e-mail');
         return;
       }
+
+      if (registerPassword.length < 6) {
+        setError('Senha muito curta');
+        return;
+      }
   
       const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
       console.log(user);
@@ -66,6 +71,10 @@ export default function Cadastro_Perfil({navigation}) {
 
     } catch (error) {
       console.log(error.message);
+      console.log(error.code);
+      if(error.code == 'auth/email-already-in-use'){
+        setError('Email já foi cadastrado');
+      }
     }
   };
 
@@ -77,7 +86,7 @@ export default function Cadastro_Perfil({navigation}) {
       <Text style={styles.field_name_leftCadastro}>E-mail</Text>
       <TextInput style={styles.fieldCadastro} placeholder="Digite aqui o seu e-mail" onChangeText={setRegisterEmail} />
       <Text style={styles.field_name_leftCadastro}>Senha</Text>
-      <TextInput secureTextEntry={true} style={styles.fieldCadastro} placeholder="Digite sua senha" onChangeText={setRegisterPassword} />
+      <TextInput secureTextEntry={true} style={styles.fieldCadastro} placeholder="Insira uma senha (mínimo 6 caracteres)" onChangeText={setRegisterPassword} />
       <Text style={styles.field_name_leftCadastro}>Hospital/Clínica associado</Text>
       <Picker style={styles.pickerCadastro} selectedValue={selectedLocal} onValueChange={(itemValue) => setSelectedLocal(itemValue)}>
         {local_options.map((item, index) => {
@@ -90,10 +99,10 @@ export default function Cadastro_Perfil({navigation}) {
           return (<Picker.Item label={item} value={item} key={index} />);
         })}
       </Picker>
+      {error ? <Text style={styles.error}>{error}</Text> : null}
       <Pressable style={styles.buttonCadastro} onPress={register}>
         <Text style={styles.textCadastro}>Cadastrar</Text>
       </Pressable>
-      {error ? <Text style={styles.error}>{error}</Text> : null}
       <StatusBar style="auto" />
     </View>
   );
