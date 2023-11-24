@@ -48,11 +48,11 @@ export default function App() {
       {userGlobal.isLoggedIn == false && <Stack.Screen options={{ headerShown: false }} name='Home' component={Home} />}
        <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Cadastro_Perfil' component={Cadastro_Perfil} />
        <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Login' component={Login} />
-       <Stack.Screen name='Admin_Home' component={Admin_Home} />
-       <Stack.Screen name='Cadastra_Local' component={Cadastra_Local} />
-       <Stack.Screen name='Autoriza_Usuarios' component={Autoriza_Usuarios} />
-       <Stack.Screen name='Verifica_Usuarios' component={Verifica_Usuarios} />
-       <Stack.Screen name='Seleciona_Examinador_Da_Semana' component={Seleciona_Examinador_Da_Semana} />
+       <Stack.Screen options={{ headerTitle: '', headerTransparent: true, headerLeft: null}} name='Admin_Home' component={Admin_Home} />
+       <Stack.Screen options={{ title: '' }} name='Cadastra_Local' component={Cadastra_Local} />
+       <Stack.Screen options={{ title: '' }} name='Autoriza_Usuarios' component={Autoriza_Usuarios} />
+       <Stack.Screen options={{ title: '' }} name='Verifica_Usuarios' component={Verifica_Usuarios} />
+       <Stack.Screen options={{ title: '' }} name='Seleciona_Examinador_Da_Semana' component={Seleciona_Examinador_Da_Semana} />
 
        <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Requisitante_Home' component={Requisitante_Home} />
        <Stack.Screen options={{ headerTitle: '', headerTransparent: true}} name='Solicitacao_Exame' component={Solicitacao_Exame} />

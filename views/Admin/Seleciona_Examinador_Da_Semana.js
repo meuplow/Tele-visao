@@ -10,7 +10,7 @@ export default function Seleciona_Examinador_Da_Semana({navigation}) {
     async function getExaminadores(){
         let examinadores = new Array();
         let examinadoresRef = collection(db, "usuario");
-        let acceptedQuery = query(examinadoresRef, where("perfil", "==", "examinador"));
+        let acceptedQuery = query(examinadoresRef, where("perfil", "==", "Examinador"));
         let examinadoresSnapshot = await getDocs(acceptedQuery);
         examinadoresSnapshot.forEach(examinador => {
                 examinadores.push({'id': examinador.id, 'dados': examinador.data()});
@@ -23,14 +23,14 @@ export default function Seleciona_Examinador_Da_Semana({navigation}) {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        const getExs = async () => {
-          const respExaminadores = await getExaminadores();
-          setExaminadores(respExaminadores);
-          setIsLoaded(true);
-          console.log(respExaminadores);
-        }
-        getExs();
+        carregarExaminadores();
     }, []);
+
+    async function carregarExaminadores() {
+        const respExaminadores = await getExaminadores();
+        setExaminadores(respExaminadores);
+        setIsLoaded(true);
+    }
 
     function confirma_examinador(examinador){
         var response = confirm("Confirme se deseja selecionar este usuário como examinador da semana.");
@@ -48,13 +48,29 @@ export default function Seleciona_Examinador_Da_Semana({navigation}) {
 
             updateDoc(examinadorRef, {
                 'examinador_da_semana': true
+            }).then(() => {
+                carregarExaminadores();
             });
-                    
-            navigation.navigate('Admin_Home')
         }
         else{
             navigation.navigate('Selecionar_Examinador_Da_Semana')
         }
+    }
+
+    function Examinador({ nome, examinadorDaSemana }) {
+        const iniciais = nome.split(' ').map(parte => parte[0]).join('').toUpperCase();
+    
+        return (
+            <View style={styles.examinadorContainer}>
+                <View style={[styles.circle, examinadorDaSemana ? styles.circleExaminadorDaSemana : {}]}>
+                    <Text style={styles.initials}>{iniciais}</Text>
+                </View>
+                <View>
+                    <Text style={styles.name}>{nome}</Text>
+                    {examinadorDaSemana && <Text style={styles.examinadorDaSemanaText}>Examinador da semana</Text>}
+                </View>
+            </View>
+        );
     }
 
     return (
@@ -66,7 +82,7 @@ export default function Seleciona_Examinador_Da_Semana({navigation}) {
                 isLoaded && examinadores.length > 0 && examinadores.map(examinador => {
                     return (
                         <Pressable key={examinador.id} style={styles.list_button} onPress={() => confirma_examinador(examinador)}>  
-                            <Text style={styles.title}>Examinador: {examinador['dados']["nome"]}</Text>
+                            <Examinador nome={examinador['dados']["nome"]} examinadorDaSemana={examinador['dados']['examinador_da_semana']} />
                         </Pressable>
                 )
             })
