@@ -8,6 +8,12 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       color: '#363636',
     },
+    container_exame_realizado: {
+      margin: 15,
+      display: 'flex',
+      backgroundColor: '#fff',
+      color: '#363636',
+    },
     containerHome: {
       display: 'flex',
       backgroundColor: '#fff',
