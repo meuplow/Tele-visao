@@ -1,8 +1,9 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Pressable, Div } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import { Text, View, Image } from 'react-native';
+import { getDownloadURL, ref, getStorage } from 'firebase/storage';
 import styles from './styles.js';
+
 
 export default function Ver_Laudos({ navigation }) {
     var laudos = [['Santa Casa', 'Carolina'],
@@ -11,7 +12,8 @@ export default function Ver_Laudos({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Ver Laudos</Text>
+            <View style={{ height: 50 }} />
+            <Text style={styles.title}>Verificação de Laudos</Text>
             {laudos.map((item) => {
                 return (
                     <Pressable style={styles.list_button} onPress={() => alert("Laudo")}>
