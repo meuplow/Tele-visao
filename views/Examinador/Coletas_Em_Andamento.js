@@ -31,7 +31,6 @@ export default function Coletas_Em_Andamento({navigation}) {
     }
 
   function start_exam(patient){
-        var response = confirm("Começar coleta?");
         var response = confirm("Deseja iniciar a coleta?");
 
         if(response){
