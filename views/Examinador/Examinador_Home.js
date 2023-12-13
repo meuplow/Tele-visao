@@ -35,25 +35,27 @@ export default function Examinador_Home({ route, navigation }) {
         </View>
       </View>
       
-      {userGlobal.examinador_da_semana && <Text style={{ marginBottom: -20, fontWeight: 'bold', backgroundColor: "#F7EFEE", borderRadius: 10, width: 180, padding: 10}}>Examinador da semana</Text>}
+      {userGlobal.examinador_da_semana && <Text style={{ marginBottom: -20, fontWeight: 'bold', backgroundColor: "#b3c1e8", borderRadius: 10, width: 180, padding: 10}}>Examinador da semana</Text>}
+
+      <View style={styles.containerCentralize}>  
       <Text style={styles.menu}>Menu</Text>
       <View style={styles.menu_button_container}>
       <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Coletas_Em_Andamento')}>
-        <Icon name="clipboard-text-multiple" size={40} color='#5A6CF3' />
-        <Text style={styles.text_menu_button}>Coletas em andamento</Text>
+        <Icon name="clipboard-text-multiple" size={35} color='#4864b0' />
+        <Text style={[styles.text_menu_button,  { marginTop: 5 } ]}>Coletas em andamento</Text>
       </Pressable>
       <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Exames_Pendentes')}>
-        <Icon name="alert" size={40} color='#F08F5F' />
-        <Text style={styles.text_menu_button}>Exames pendentes</Text>
+        <Icon name="alert" size={35} color='#F08F5F' />
+        <Text style={[styles.text_menu_button,  { marginTop: 5 } ]}>Exames pendentes</Text>
       </Pressable>
       </View>
-      <View style={styles.menu_button_container_low}>
-      <View style={styles.menu_button_container_inside}>
+
       <Pressable style={styles.menu_button} onPress={() => navigation.navigate('Coletas_Feitas')}>
-        <Icon name="clipboard-check-multiple-outline" size={40} color='#5CE1CD' />
-        <Text style={styles.text_menu_button}>Coletas feitas</Text>
-      </Pressable></View></View>
+        <Icon name="clipboard-check-multiple-outline" size={35} color='#4864b0' />
+        <Text style={[styles.text_menu_button,  { marginTop: 5 } ]}>Coletas feitas</Text>
+      </Pressable>
       <StatusBar style="auto" />
+    </View>
     </View>
   );
 }
