@@ -114,7 +114,7 @@ export default function Exames_Pendentes({navigation}) {
                                 <Icon style={styles.camera_icon} name="hospital" color='#363636' size={20}/>
                                 <Text style={styles.subtitle}>{patient['dados']["local"]}</Text>
                                 </View>
-                                <Text style={styles.patientText}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                                <Text style={styles.patientText} >Paciente: {patient['dados']["nome_completo"]}</Text>
                             </View>
                         </Pressable>
                 )
@@ -122,7 +122,7 @@ export default function Exames_Pendentes({navigation}) {
             }
             <Alert
                 show={showAlert}
-                message="Coleta aceita!"
+                message="Coleta aceita! Para iniciar, acesse Coletas em Andamento no Menu Principal."
                 closeOnTouchOutside={true}
                 onDismiss={() => setShowAlert(false)}
             />
