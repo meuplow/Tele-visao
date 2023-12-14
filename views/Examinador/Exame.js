@@ -10,6 +10,9 @@ import { db, storage } from '../../src/config/firebase.js';
 import { collection, getDocs, updateDoc, doc,  query, where} from 'firebase/firestore';
 import { uploadBytes, ref } from "firebase/storage";
 import { Buffer } from "buffer";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import loginStyle from '../Login/LoginStyle.js';
+
 
 class ExamInfo {
     constructor(image, description) {
@@ -102,19 +105,25 @@ export default function Exame({ route, navigation }) {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={styles.containerCentralize}>
+            <Text style={styles.title}>Dados da coleta</Text>
             {/* <View style={styles.list_button_local}><Text style={styles.field_name_left}>{patient['dados']['nome_completo']}</Text></View> */}
-            <Text style={styles.field_name}>{patient['dados']['nome_completo']}</Text>
+            <View style={styles.container}>
+            <Text style={styles.field_name}> Exame realizado em {patient['dados']['nome_completo']}</Text>
+            <Text style={styles.field_name}> Local: {patient['dados']['local']}</Text>
+            <Text style={styles.field_name}> Matrícula: {patient['dados']['matricula']}</Text>
+            <Text style={styles.field_name}> Solicitação: {patient['dados']['infos_solicitacao']}</Text>
+            </View>
             <View style={styles.container_exame}>
                 <Pressable style={styles.list_button} onPress={ () => pickImage() }>
-                    <Text style={styles.field_name}>Selecionar imagem da galeria</Text>
+                    <Text style={styles.field} > Clique aqui e selecione a imagem do exame na galeria </Text>
+                    <Icon name="upload" size={30} color='#4864b0' />
                 </Pressable></View>
             {image&& <View style={styles.container_exame}>
                 <Icon_person style={styles.camera_icon} name="check" size={20} color='#A3E8A3'/>
                 <Text style={styles.subtitle}>Imagem Carregada</Text>
             </View>}
-                <Text style={styles.field_name}>Descrição</Text>
-            <View style={styles.container_exame}>
+                <Text style={styles.field_name}>Descrição da imagem coletada </Text>
                 <TextInput 
                     onChangeText={newDesc => setDescription(newDesc)}
                     defaultValue={description}
@@ -122,7 +131,6 @@ export default function Exame({ route, navigation }) {
                     multiline={true}
                     style={styles.big_field}
                     placeholder="Informe o olho que a imagem foi capturada e demais informações relevantes" />
-            </View>
             <View style={styles.container_exame}>
             <Pressable onPress={ () => uploadExam(patient, new ExamInfo(image, description)) } style={styles.button_exam}>
                 <Text style={styles.text}>Enviar exame</Text>
