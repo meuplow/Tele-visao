@@ -463,6 +463,13 @@ const styles = StyleSheet.create({
       width: 100,
       fontWeight: 'bold'
     },
+    eyeImage: {
+      height: 80,
+      width: 120,
+    },
+    img_full: {
+      // tela cheia
+    },
     viewImageLogo: {
       display: 'flex',
       alignItems: 'center',

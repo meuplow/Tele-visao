@@ -62,29 +62,49 @@ export default function Exames_Pendentes_Oftalmologista({ navigation }) {
             <View style={{ height: 50 }} />
             <Text style={styles.title}>Exames pendentes</Text>
             {!isLoaded && <p>Carregando...</p>}
-            <Text style={styles.patientText}> 
-            {isLoaded && exams.length == 0 && <p>Nenhum exame em andamento.</p>}
-            </Text>
-            {
-                isLoaded && exams.length > 0 && exams.map(patient => {
-                    return (
-                        <View style={styles.sub_container}>
-                            <Pressable style={styles.list_button} onPress={() => start_exam(patient)}>
-                                <View style={styles.list_information}>
-                                <View style={styles.list_button_local}>
-                                    <Icon style={styles.camera_icon} name="hospital" color='#363636' size={20}/>
-                                    <Text style={styles.subtitle}>{patient['dados']["local"]}</Text>
-                                </View>
-                                <View style={styles.list_button_local}>
-                                    <Icon_person style={styles.list_icon} name="person" size={20} color='#363636' />
-                                    <Text style={styles.patientText}>Paciente: {patient['dados']["nome_completo"]}</Text>
-                                </View>
-                                </View>
-                        </Pressable>
-                        </View>
-                )
-            })
-            }
+            {isLoaded && exams.length === 0 && (
+             <Text style={styles.patientText}>Nenhum exame em andamento.</Text>
+            )}
+    {
+        isLoaded &&
+        exams.length > 0 &&
+        exams.map((patient) => {
+            return (
+            <View style={styles.sub_container} key={patient.id}>
+                <Pressable style={styles.list_button} onPress={() => start_exam(patient)}>
+                <View style={styles.list_information}>
+                    <View style={styles.list_button_local}>
+                    <Icon
+                        style={styles.camera_icon}
+                        name="hospital"
+                        color="#363636"
+                        size={20}
+                    />
+                    <Text style={styles.subtitle}>{patient['dados']['local']}</Text>
+                    </View>
+                    <View style={styles.list_button_local}>
+                    <Icon_person
+                        style={styles.list_icon}
+                        name="person"
+                        size={20}
+                        color="#363636"
+                    />
+                    <Text style={styles.patientText}>
+                        Paciente: {patient['dados']['nome_completo']}
+                    </Text>
+                    </View>
+                </View>
+                </Pressable>
+                {patient['dados']['images'] && patient['dados']['images'].length > 0 && (
+                <Image
+                    source={{ uri: patient['dados']['images'][0] }}
+                    style={{ width: 100, height: 100 }}
+                />
+                )}
+            </View>
+            );
+        })
+    }
             <StatusBar style="auto" />
         </View>
     );
