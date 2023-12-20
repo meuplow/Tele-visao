@@ -257,7 +257,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      marginBottom: 10
     },
     img_full: {
       height: "100%",

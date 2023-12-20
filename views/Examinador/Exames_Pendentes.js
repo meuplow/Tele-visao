@@ -49,10 +49,6 @@ export default function Exames_Pendentes({navigation}) {
         }
     }
 
-    function simple_alert() {
-        Alert.alert('Coleta', 'Coleta aceita!');
-    }
-
     async function aceita_coleta(patient){
         var response = confirm("Aceitar coleta?");
 
@@ -102,7 +98,7 @@ export default function Exames_Pendentes({navigation}) {
             
             <Text style={styles.title}>Exames pendentes</Text>
             {!isLoaded && <p>Carregando...</p>}
-            {isLoaded && exams.length == 0  && <p>Nenhum exame pendente.</p>}
+            {isLoaded && exams.length === 0  && <p>Nenhum exame pendente.</p>}
             {
                 isLoaded && exams.length > 0 && exams.map(patient => {
                     return (

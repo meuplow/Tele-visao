@@ -54,7 +54,6 @@ export default function Coletas_Em_Andamento({navigation}) {
     
     return (
         <View style={styles.container}>
-            {examinador && <Text style={styles.subtitle}>Você é o examinador da semana!</Text>}
             <Text style={styles.title}>Coletas em andamento</Text>
             {!isLoaded && <p>Carregando...</p>}
             {isLoaded && exams.length == 0  && <p>Nenhum exame em andamento.</p>}
