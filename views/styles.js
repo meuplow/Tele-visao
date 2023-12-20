@@ -47,6 +47,12 @@ const styles = StyleSheet.create({
       display: 'flex',
       backgroundColor: '#fff',
       color: '#363636',
+    }, 
+    container_exame_realizado: {
+      margin: 15,
+      display: 'flex',
+      backgroundColor: '#fff',
+      color: '#363636',
     },
     containerHome: {
       display: 'flex',
@@ -251,7 +257,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      marginBottom: 10
     },
     img_full: {
       height: "100%",

@@ -28,7 +28,7 @@ export default function Exames_Pendentes({navigation}) {
         if(examinador == true){
             examsSnapshot.forEach(exam => {
                 let examData = exam.data();
-                if((!'examinador' in examData) || examData['examinador'] == "" || examData['examinador'] == userGlobal.email) {
+                if((!('examinador' in examData)) || examData['examinador'] == "" || examData['examinador'] == userGlobal.email) {
                     exams.push({'id': exam.id, 'dados': exam.data()});
                 }
             });
@@ -49,10 +49,6 @@ export default function Exames_Pendentes({navigation}) {
         }
     }
 
-    function simple_alert() {
-        Alert.alert('Coleta', 'Coleta aceita!');
-    }
-
     async function aceita_coleta(patient){
         var response = confirm("Aceitar coleta?");
 
@@ -60,7 +56,8 @@ export default function Exames_Pendentes({navigation}) {
             const patientRef = doc(db, 'exames', patient['id']);
             updateDoc(patientRef, {
                 'aceito': true,
-                'examinador': userGlobal.email
+                'examinador': userGlobal.email,
+                'coletado' : false
             });
             setShowAlert(true);
         }
@@ -98,10 +95,10 @@ export default function Exames_Pendentes({navigation}) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.subtitle}>Você é o examinador da semana!</Text>
+            
             <Text style={styles.title}>Exames pendentes</Text>
             {!isLoaded && <p>Carregando...</p>}
-            {isLoaded && exams.length == 0  && <p>Nenhum exame pendente.</p>}
+            {isLoaded && exams.length === 0  && <p>Nenhum exame pendente.</p>}
             {
                 isLoaded && exams.length > 0 && exams.map(patient => {
                     return (
@@ -114,7 +111,7 @@ export default function Exames_Pendentes({navigation}) {
                                 <Icon style={styles.camera_icon} name="hospital" color='#363636' size={20}/>
                                 <Text style={styles.subtitle}>{patient['dados']["local"]}</Text>
                                 </View>
-                                <Text style={styles.patientText}>Paciente: {patient['dados']["nome_completo"]}</Text>
+                                <Text style={styles.patientText} >Paciente: {patient['dados']["nome_completo"]}</Text>
                             </View>
                         </Pressable>
                 )
@@ -122,7 +119,7 @@ export default function Exames_Pendentes({navigation}) {
             }
             <Alert
                 show={showAlert}
-                message="Coleta aceita!"
+                message="Coleta aceita! Para iniciar, acesse Coletas em Andamento no Menu Principal."
                 closeOnTouchOutside={true}
                 onDismiss={() => setShowAlert(false)}
             />

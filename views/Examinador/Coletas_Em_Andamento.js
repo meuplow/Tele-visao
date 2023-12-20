@@ -30,8 +30,8 @@ export default function Coletas_Em_Andamento({navigation}) {
         }
     }
 
-    function start_exam(patient){
-        var response = confirm("Começar coleta?");
+  function start_exam(patient){
+        var response = confirm("Deseja iniciar a coleta?");
 
         if(response){
             navigation.navigate('Exame', {
@@ -54,7 +54,6 @@ export default function Coletas_Em_Andamento({navigation}) {
     
     return (
         <View style={styles.container}>
-            {examinador && <Text style={styles.subtitle}>Você é o examinador da semana!</Text>}
             <Text style={styles.title}>Coletas em andamento</Text>
             {!isLoaded && <p>Carregando...</p>}
             {isLoaded && exams.length == 0  && <p>Nenhum exame em andamento.</p>}
@@ -63,8 +62,8 @@ export default function Coletas_Em_Andamento({navigation}) {
                     return (
                         <Pressable key={patient.id} style={styles.list_button} onPress={() => start_exam(patient)}>  
                             <View style={styles.list_button_local}>
-                                <Icon style={styles.camera_icon} name="hospital" color='#363636' size={20}/>
-                                <Text style={styles.subtitle}>{patient['dados']["local"]}</Text>
+                                <Icon name="hospital" size={25}/>
+                                <Text style={styles.list_subtitle}> {patient['dados']["local"]}</Text>
                             </View>
                             <Text style={styles.patientText}>Paciente: {patient['dados']["nome_completo"]}</Text>
                         </Pressable>
