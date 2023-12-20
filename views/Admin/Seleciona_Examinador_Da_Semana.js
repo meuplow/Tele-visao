@@ -58,8 +58,8 @@ export default function Seleciona_Examinador_Da_Semana({navigation}) {
     }
 
     function Examinador({ nome, examinadorDaSemana }) {
-        const iniciais = nome.split(' ').map(parte => parte[0]).join('').toUpperCase();
-    
+        const iniciais = nome ? nome.split(' ').map(parte => parte[0]).join('').toUpperCase() : '?';
+         
         return (
             <View style={styles.examinadorContainer}>
                 <View style={[styles.circle, examinadorDaSemana ? styles.circleExaminadorDaSemana : {}]}>

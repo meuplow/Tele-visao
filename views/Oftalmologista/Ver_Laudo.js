@@ -7,21 +7,28 @@ import { getDownloadURL, ref, getStorage } from 'firebase/storage';
 export default function Ver_Laudo({route}) {
     
     const { patient } = route.params;
-    const [ url, setUrl ] = useState('');
+    const [ url1, setUrl1 ] = useState('');
+    const [ url2, setUrl2 ] = useState('');
     const [ data, setData ] = useState('');
 
     useEffect(() => {
         const func = async () => {
             const storage = getStorage();
-            const reference = ref(storage, patient['dados']['image']);
+            const reference1 = ref(storage, patient['dados']['image1']);
+            const reference2 = ref(storage, patient['dados']['image2']);
 
             setData(formatDate(patient['dados']['data_de_nascimento'].toDate()));
 
-            await getDownloadURL(reference).then((x => {
-                setUrl(x);
-            })
-            );};
-            func();
+            await getDownloadURL(reference1).then((x => {
+                setUrl1(x);
+            }));
+
+            await getDownloadURL(reference2).then((x => {
+                setUrl2(x);
+            }));
+            
+        };
+        func();
     }, []);
 
     const formatDate = (dateString) => {// Alterar, está dando data invalida
@@ -30,14 +37,23 @@ export default function Ver_Laudo({route}) {
         return new Date(dateString).toLocaleDateString(undefined, options)
     }
 
-    const [showFullScreen, setShowFullScreen] = useState(false);
+    const [showFullScreen1, setShowFullScreen1] = useState(false);
+    const [showFullScreen2, setShowFullScreen2] = useState(false);
 
-    const handleImageClick = () => {
-        setShowFullScreen(true);
+    const handleImageClick1 = () => {
+        setShowFullScreen1(true);
     };
 
-    const handleCloseFullScreen = () => {
-        setShowFullScreen(false);
+    const handleCloseFullScreen1 = () => {
+        setShowFullScreen1(false);
+    };
+
+    const handleImageClick2 = () => {
+        setShowFullScreen2(true);
+    };
+
+    const handleCloseFullScreen2 = () => {
+        setShowFullScreen2(false);
     };
       
     return (
@@ -67,12 +83,21 @@ export default function Ver_Laudo({route}) {
             <Text style={styles.field_name_left_small}>{patient['dados']['examinador']}</Text>
             <Text style={styles.title}>Exame</Text>
             <Text style={styles.field_name_img}>
-                Visualizar imagem
+                Visualizar Imagem 1
                 <View style={{ width: 20 }} />
-                <Image onClick={handleImageClick} source={{ uri: url }} style={{ height: 80, width:120}} />
+                <Image onClick={handleImageClick1} source={{ uri: url1 }} style={{ height: 80, width:120}} />
 
-                {showFullScreen && (
-                    <Image onClick={handleCloseFullScreen} source={{ uri: url }} style={styles.img_full} />
+                {showFullScreen1 && (
+                    <Image onClick={handleCloseFullScreen1} source={{ uri: url1 }} style={styles.img_full} />
+                )}
+            </Text>
+            <Text style={styles.field_name_img}>
+                Visualizar Imagem 2
+                <View style={{ width: 20 }} />
+                <Image onClick={handleImageClick2} source={{ uri: url2 }} style={{ height: 80, width:120}} />
+
+                {showFullScreen2 && (
+                    <Image onClick={handleCloseFullScreen2} source={{ uri: url2 }} style={styles.img_full} />
                 )}
             </Text>
             <Text style={styles.title}>Descrição</Text>

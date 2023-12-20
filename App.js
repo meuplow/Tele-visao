@@ -73,6 +73,7 @@ export default function App() {
        <Stack.Screen  options={{ headerTitle: '', headerTransparent: true}} name='Exames_Atribuidos' component={Exames_Atribuidos}/>
        <Stack.Screen  options={{ headerTitle: '', headerTransparent: true}} name='Coletas_Em_Andamento' component={Coletas_Em_Andamento}/>
        <Stack.Screen  options={{ headerTitle: '', headerTransparent: true}} name='Coletas_Feitas' component={Coletas_Feitas}/>
+       <Stack.Screen  options={{ headerTitle: '', headerTransparent: true}} name='Exames_Pendentes' component={Exames_Pendentes}/>
      </Stack.Navigator>
     </NavigationContainer>
   );
