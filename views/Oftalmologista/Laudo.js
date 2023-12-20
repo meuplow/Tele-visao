@@ -14,19 +14,24 @@ class ExamInfo {
 }
 
 async function addExamInfo(patient, examInfo) {
-    let patientData = patient['dados'];
-    
-    // cria referência do documento do paciente no banco de dados
-    const patientRef = doc(db, 'exames', patient['id']);
+   try {
+        let patientData = patient['dados'];
+        
+        // cria referência do documento do paciente no banco de dados
+        const patientRef = doc(db, 'exames', patient['id']);
 
-    patientData['diagnostico'] = examInfo.diagnostico;
+        patientData['diagnostico'] = examInfo.diagnostico;
 
-    // atualiza somente os campos diagnostico a partir de um JSON
-    await updateDoc(patientRef, {
-        'diagnostico': examInfo.diagnostico,
-        'laudo_finalizado': true
-    });
-    return;
+        // atualiza somente os campos diagnostico a partir de um JSON
+        await updateDoc(patientRef, {
+            'diagnostico': examInfo.diagnostico,
+            'laudo_finalizado': true
+        });
+        return;
+   } catch (error) {
+        alert('Erro ao adicionar informações do exame no laudo:', error);
+        throw error;
+   }
 }
 
 export default function Laudo({ route }) {
@@ -140,7 +145,7 @@ export default function Laudo({ route }) {
             </Text>
             <Text style={styles.title}>Descrição</Text>
             <Text style={styles.field_name_left_small}>{patient['dados']['description']}</Text>
-
+           
             <Text style={styles.title}>Diagnóstico</Text>
             <TextInput 
                 onChangeText={newDesc => setDiagnostico(newDesc)}
